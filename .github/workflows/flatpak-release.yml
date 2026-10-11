@@ -1,0 +1,93 @@
+name: Flatpak from main
+
+# An installable Flatpak of whatever is on main, published on every push.
+#
+# release.yml already attaches a Flatpak to each versioned release, but it
+# only fires when the version in CMakeLists.txt is bumped (and then also needs
+# the OBS/AUR secrets), so between releases there is nothing to install. This
+# fills that gap with ONE rolling prerelease, tag `flatpak-latest`, whose asset
+# keeps the same name on every build:
+#
+#   https://github.com/<owner>/<repo>/releases/download/flatpak-latest/unisic-x86_64.flatpak
+#
+# Install or update it with
+#   flatpak install --user --reinstall ./unisic-x86_64.flatpak
+# (the KDE runtime it needs comes from Flathub; the bundle names that remote).
+#
+# Kept apart from the real releases on purpose:
+#   - the tag is not v*, so release.yml's "is this version tagged yet" check,
+#     scripts/gen-changelog.sh and install.sh never see it;
+#   - it is a PRERELEASE, so GitHub's "latest release" (what install.sh and
+#     UpdateChecker read) stays the last versioned one.
+#
+# The build itself is flatpak.yml, the same reusable workflow release.yml and
+# build.yml call, with local: true so it builds this commit rather than the tag
+# the manifest pins.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Only the newest commit's bundle matters; a build of an older one that is
+# still running would only overwrite it with something staler.
+concurrency:
+  group: flatpak-latest
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/flatpak.yml
+    with:
+      local: true
+
+  publish:
+    name: Publish flatpak-latest
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: flatpak-bundle
+          path: dist
+
+      - name: Replace the rolling prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          versioned="$(ls dist/*.flatpak)"
+          # unisic-<version>-x86_64.flatpak -> <version>, for the title only:
+          # the asset itself keeps one name so the download link never moves.
+          version="$(basename "$versioned" -x86_64.flatpak)"
+          version="${version#unisic-}"
+          mv "$versioned" dist/unisic-x86_64.flatpak
+          short="${GITHUB_SHA::7}"
+
+          cat > NOTES.md <<EOF
+          Automatic build of \`main\` at ${GITHUB_SHA} (${version}+${short}). Not a release:
+          it is replaced on every push to main. Versioned releases are the ones tagged \`v*\`.
+
+          Install or update:
+
+          \`\`\`bash
+          curl -LO https://github.com/${GH_REPO}/releases/download/flatpak-latest/unisic-x86_64.flatpak
+          flatpak install --user --reinstall ./unisic-x86_64.flatpak
+          \`\`\`
+          EOF
+
+          # Delete and recreate rather than upload --clobber: the tag has to
+          # move to this commit, and an existing release keeps its old target.
+          gh release delete flatpak-latest --cleanup-tag --yes 2>/dev/null || true
+          gh release create flatpak-latest dist/unisic-x86_64.flatpak \
+            --target "$GITHUB_SHA" \
+            --prerelease \
+            --title "Unisic Flatpak - main (${version}+${short})" \
+            --notes-file NOTES.md
