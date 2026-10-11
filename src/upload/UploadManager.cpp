@@ -1,5 +1,6 @@
 #include "UploadManager.h"
 #include "Settings.h"
+#include "S3Sign.h"
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QHttpMultiPart>
@@ -513,6 +514,10 @@ QVariantMap UploadManager::templateHelp(const QString &field, const QString &typ
     const bool curl = type.compare(QLatin1String("curl"), Qt::CaseInsensitive) == 0;
     QVariantList vars;
     QString pattern;
+    // An s3 request URL is the bare endpoint and s3Upload() builds the object
+    // key itself, so no field of that type substitutes anything.
+    if (type.compare(QLatin1String("s3"), Qt::CaseInsensitive) == 0)
+        return {{QStringLiteral("pattern"), pattern}, {QStringLiteral("vars"), vars}};
 
     if (field == QLatin1String("requestUrl")) {
         // Both senders substitute it (requestUrlWithFileName); only curl also
@@ -673,6 +678,14 @@ void UploadManager::startUploadTo(const QJsonObject &dest, const QByteArray &dat
         return;
     }
     const QString type = dest.value(QStringLiteral("type")).toString(QStringLiteral("http"));
+    if (type == QLatin1String("s3")) {
+        const QString missing = s3SetupError(dest);
+        if (!missing.isEmpty()) {
+            cb({}, {}, tr("%1 Fix it in Servers → %2 → Edit.")
+                           .arg(missing, dest.value(QStringLiteral("name")).toString()));
+            return;
+        }
+    }
     // `busy` means "a capture is on its way to a server": it greys the editor's
     // Upload button out and relabels it "Uploading…". A configuration test is
     // not that - it moves a few hundred bytes of generated PNG on a server the
@@ -690,6 +703,8 @@ void UploadManager::startUploadTo(const QJsonObject &dest, const QByteArray &dat
     };
     if (type == QLatin1String("curl"))
         curlUpload(dest, data, srcPath, fileName, purpose, done);
+    else if (type == QLatin1String("s3"))
+        s3Upload(dest, data, srcPath, fileName, mime, purpose, done);
     else
         httpUpload(dest, data, srcPath, fileName, mime, purpose, done);
 }
@@ -714,7 +729,15 @@ void UploadManager::testDestination(const QVariantMap &destMap)
 void UploadManager::testDestination(const QVariantMap &destMap, TestCallback cb)
 {
     const QJsonObject dest = QJsonObject::fromVariantMap(destMap);
-    if (dest.value(QStringLiteral("requestUrl")).toString().trimmed().isEmpty()) {
+    // An s3 endpoint may legitimately be empty (it means AWS itself); what it
+    // cannot do without is a bucket and a key pair, worded as in the editor.
+    if (dest.value(QStringLiteral("type")).toString() == QLatin1String("s3")) {
+        const QString missing = s3SetupError(dest);
+        if (!missing.isEmpty()) {
+            cb(false, {}, missing);
+            return;
+        }
+    } else if (dest.value(QStringLiteral("requestUrl")).toString().trimmed().isEmpty()) {
         cb(false, {}, tr("Enter a request URL first."));
         return;
     }
@@ -1199,4 +1222,120 @@ void UploadManager::curlUpload(const QJsonObject &dest, const QByteArray &data,
     });
     proc->write(curlConfig);
     proc->closeWriteChannel();
+}
+
+QString UploadManager::s3SetupError(const QJsonObject &dest)
+{
+    const QString bucket = dest.value(QStringLiteral("bucket")).toString().trimmed();
+    if (bucket.isEmpty())
+        return tr("This S3 server has no bucket.");
+    if (bucket.contains(QLatin1Char('/')))
+        return tr("A bucket name cannot contain a slash. Put folders in the Folder field instead.");
+    if (dest.value(QStringLiteral("accessKeyId")).toString().trimmed().isEmpty()
+        || dest.value(QStringLiteral("secretAccessKey")).toString().trimmed().isEmpty())
+        return tr("This S3 server needs an access key ID and a secret access key.");
+    if (S3Sign::target(dest, QStringLiteral("x")).error == QLatin1String("endpoint"))
+        return tr("The S3 endpoint is not a valid http or https address.");
+    return {};
+}
+
+QString UploadManager::s3ErrorMessage(const QByteArray &body)
+{
+    // <Error><Code>SignatureDoesNotMatch</Code><Message>…</Message>…</Error>.
+    // The code is the part worth searching the web for, the message the part a
+    // person can read, so both go out. A regex and not QXmlStreamReader: two
+    // flat leaf elements do not justify linking Qt's XML module.
+    static const QRegularExpression code(QStringLiteral("<Code>([^<]*)</Code>"));
+    static const QRegularExpression message(QStringLiteral("<Message>([^<]*)</Message>"));
+    const QString text = QString::fromUtf8(body);
+    const QString c = code.match(text).captured(1).trimmed();
+    const QString m = message.match(text).captured(1).trimmed();
+    if (c.isEmpty())
+        return m;
+    return m.isEmpty() ? c : QStringLiteral("%1: %2").arg(c, m);
+}
+
+void UploadManager::s3Upload(const QJsonObject &dest, const QByteArray &data,
+                             const QString &srcPath, const QString &fileName,
+                             const QString &mime, Purpose purpose, Callback cb)
+{
+    // startUploadTo() has already run s3SetupError(), so the target resolves.
+    const S3Sign::Target t = S3Sign::target(dest, sanitizeFileName(fileName));
+
+    QNetworkRequest req{t.url};
+    req.setTransferTimeout(purpose == Purpose::Test ? kTestStallMs : kCaptureStallMs);
+    // No redirects: the signature covers this Host, so following S3's 301 for
+    // a bucket in another region could only fail again, and that 301's body
+    // is the one message that names the endpoint to use instead.
+    req.setAttribute(QNetworkRequest::RedirectPolicyAttribute,
+                     QNetworkRequest::ManualRedirectPolicy);
+    if (!mime.isEmpty())
+        req.setHeader(QNetworkRequest::ContentTypeHeader, mime);
+
+    const QDateTime now = QDateTime::currentDateTimeUtc();
+    // An in-memory capture is a few MB at most, so it is hashed and signed;
+    // a file is streamed and goes UNSIGNED-PAYLOAD (see S3Sign.h for why).
+    const QByteArray payloadHash =
+        srcPath.isEmpty() ? S3Sign::sha256Hex(data) : QByteArray(S3Sign::kUnsignedPayload);
+
+    S3Sign::Request sig;
+    sig.method = "PUT";
+    sig.canonicalUri = t.canonicalUri;
+    sig.payloadHash = payloadHash;
+    sig.region = t.region;
+    sig.accessKeyId = dest.value(QStringLiteral("accessKeyId")).toString().trimmed();
+    sig.secretAccessKey = dest.value(QStringLiteral("secretAccessKey")).toString().trimmed();
+    sig.when = now;
+    sig.headers = {{"host", t.host},
+                   {"x-amz-content-sha256", payloadHash},
+                   {"x-amz-date", S3Sign::amzDate(now)}};
+    QByteArray acl = dest.value(QStringLiteral("acl")).toString().trimmed().toUtf8();
+    acl.replace('\r', "").replace('\n', "");
+    if (!acl.isEmpty())
+        sig.headers.append({"x-amz-acl", acl});
+
+    // Sent exactly as signed. Host is set explicitly rather than left to the
+    // HTTP stack, so the one header S3 recomputes the signature from cannot
+    // differ by a port spelling.
+    for (const auto &h : std::as_const(sig.headers))
+        req.setRawHeader(h.first, h.second);
+    req.setRawHeader("Authorization", S3Sign::authorization(sig));
+
+    QNetworkReply *reply = nullptr;
+    if (!srcPath.isEmpty()) {
+        // Streamed from disk like the multipart path: QNetworkAccessManager
+        // reads the device on demand and takes Content-Length from its size.
+        auto *file = new QFile(srcPath);
+        if (!file->open(QIODevice::ReadOnly)) {
+            delete file;
+            cb({}, {}, tr("Cannot read %1").arg(srcPath));
+            return;
+        }
+        reply = m_nam->put(req, file);
+        file->setParent(reply);
+    } else {
+        reply = m_nam->put(req, data);
+    }
+
+    const QString publicUrl = t.publicUrl;
+    connect(reply, &QNetworkReply::finished, this, [reply, publicUrl, cb]() {
+        reply->deleteLater();
+        const QByteArray body = reply->readAll();
+        const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+        // A manual-policy 3xx finishes with NoError, so the status decides.
+        if (reply->error() != QNetworkReply::NoError || status < 200 || status >= 300) {
+            QString serverMsg = s3ErrorMessage(body);
+            if (serverMsg.isEmpty())
+                serverMsg = QString::fromUtf8(body.left(300)).trimmed();
+            const QString transport = reply->error() != QNetworkReply::NoError
+                ? reply->errorString()
+                : QStringLiteral("HTTP %1").arg(status);
+            cb({}, {}, serverMsg.isEmpty() ? transport
+                                           : QStringLiteral("%1: %2").arg(transport, serverMsg));
+            return;
+        }
+        // S3 answers a PUT with an empty body and an ETag: the link is ours to
+        // build, which target() already did.
+        cb(publicUrl, {}, {});
+    });
 }

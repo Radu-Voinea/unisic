@@ -43,6 +43,18 @@ class HistoryStore;
 //     "urlPath": "https://host/$json:data.id$". Without it the link is still
 //     "publicUrlBase" + file name.
 //
+// type "s3" PUTs the object to Amazon S3 or any S3-compatible store (Cloudflare
+// R2, MinIO, Backblaze B2, Wasabi, ...), signed with AWS Signature Version 4
+// in-process (src/upload/S3Sign.*), no SDK and no curl:
+// { "name":"my-bucket", "type":"s3", "requestUrl":"https://<acct>.r2.cloudflarestorage.com",
+//   "bucket":"shots", "region":"auto", "accessKeyId":"...", "secretAccessKey":"...",
+//   "keyPrefix":"unisic/", "publicUrlBase":"https://cdn.example.com/" }
+// An empty requestUrl means AWS itself (https://s3.<region>.amazonaws.com).
+// Optional "pathStyle" (bool) overrides the addressing guess and "acl" (e.g.
+// "public-read") is sent as a signed x-amz-acl header - off by default,
+// because a bucket with ACLs disabled (the AWS default since 2023) rejects any
+// PUT that carries one. The link is publicUrlBase + key, else the object URL.
+//
 // "body" selects the request encoding:
 //   absent / "multipart" -> multipart/form-data with the file part (default),
 //   "json" -> the raw string in "data" is POSTed as the body; tokens
@@ -148,6 +160,18 @@ public:
     static QString extractToken(const QString &token, const QByteArray &response);
     static bool isVgyMe(const QJsonObject &dest);
     static QString vgyMeUserKey(const QJsonObject &dest);
+    // An s3 destination's missing piece, worded for the user ("" when it is
+    // complete): bucket, access key pair, or an endpoint that is not a URL.
+    // One rule for the upload precheck, the server editor's test and the
+    // Destinations list's "needs setup" chip.
+    static QString s3SetupError(const QJsonObject &dest);
+    Q_INVOKABLE bool isS3Destination(const QVariantMap &dest) const
+    { return dest.value(QStringLiteral("type")).toString() == QLatin1String("s3"); }
+    Q_INVOKABLE QString s3SetupErrorOf(const QVariantMap &dest) const
+    { return s3SetupError(QJsonObject::fromVariantMap(dest)); }
+    // What S3 answered with on failure: <Code>: <Message> out of its XML error
+    // body, or "" when the body is not one.
+    static QString s3ErrorMessage(const QByteArray &body);
 
 signals:
     void destinationsChanged();
@@ -184,6 +208,8 @@ private:
                     const QString &fileName, const QString &mime, Purpose purpose, Callback cb);
     void curlUpload(const QJsonObject &dest, const QByteArray &data, const QString &srcPath,
                     const QString &fileName, Purpose purpose, Callback cb);
+    void s3Upload(const QJsonObject &dest, const QByteArray &data, const QString &srcPath,
+                  const QString &fileName, const QString &mime, Purpose purpose, Callback cb);
     void startUpload(const QByteArray &data, const QString &srcPath, const QString &fileName,
                      const QString &mime, const QString &destination, Callback cb);
     // Same as startUpload() but with the destination object already resolved, so

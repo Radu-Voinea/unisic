@@ -171,6 +171,7 @@ qt_add_executable(unisic
     src/editor/WatermarkPreview.h src/editor/WatermarkPreview.cpp
     src/overlay/OverlayController.h src/overlay/OverlayController.cpp
     src/upload/UploadManager.h src/upload/UploadManager.cpp
+    src/upload/S3Sign.h src/upload/S3Sign.cpp
     src/actions/ExternalActionRunner.h src/actions/ExternalActionRunner.cpp
     src/history/HistoryStore.h src/history/HistoryStore.cpp
     src/history/HistoryFilterModel.h src/history/HistoryFilterModel.cpp
@@ -754,6 +755,7 @@ if(BUILD_TESTING)
     qt_add_executable(unisic_upload_url_test
         tests/UploadUrlTest.cpp
         src/upload/UploadManager.h src/upload/UploadManager.cpp
+        src/upload/S3Sign.h src/upload/S3Sign.cpp
         src/Settings.h src/Settings.cpp
         src/actions/ExternalActionRunner.h src/actions/ExternalActionRunner.cpp
     )

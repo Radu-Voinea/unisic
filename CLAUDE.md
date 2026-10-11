@@ -52,7 +52,7 @@ Core features (in rough build-priority order):
 1. **Capture**: full screen (multi-monitor), interactive region (live selection with dimension readout), specific window.
 2. **On-overlay annotation** during region selection (arrows, shapes, text) *before* the capture is finalized.
 3. **Post-capture editor** auto-opened after every capture: arrows, lines, rectangles, ellipses, freehand, text, blur/pixelate, crop, numbered step markers, highlight, undo/redo.
-4. **Modular upload destinations** (custom HTTP/FTP/SFTP/API + public services), auto-copy URL to clipboard, upload history.
+4. **Modular upload destinations** (custom HTTP/FTP/SFTP/API, S3-compatible storage + public services), auto-copy URL to clipboard, upload history.
 5. **GIF screen recording** (distinct from normal video recording): record region/full screen, convert to .gif via ffmpeg; options for FPS, area, max duration.
 
 Lower priority: tray icon + quick menu, configurable global hotkeys per capture mode, capture history with thumbnails.

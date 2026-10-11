@@ -4,165 +4,165 @@
 <context>
     <name>AppContext</name>
     <message>
-        <location filename="../src/AppContext.cpp" line="256"/>
+        <location filename="../src/AppContext.cpp" line="258"/>
         <source>Encoding…</source>
         <translation>Кодирование…</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="272"/>
+        <location filename="../src/AppContext.cpp" line="274"/>
         <source>Recording failed: %1</source>
         <translation>Не удалось записать: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="278"/>
+        <location filename="../src/AppContext.cpp" line="280"/>
         <source>Could not move %1 to trash; the file is still on disk</source>
         <translation>Не удалось переместить %1 в корзину; файл остался на диске</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3123"/>
-        <location filename="../src/AppContext.cpp" line="4840"/>
+        <location filename="../src/AppContext.cpp" line="3172"/>
+        <location filename="../src/AppContext.cpp" line="4889"/>
         <source>Copied to clipboard</source>
         <translation>Скопировано в буфер обмена</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="712"/>
-        <location filename="../src/AppContext.cpp" line="737"/>
+        <location filename="../src/AppContext.cpp" line="714"/>
+        <location filename="../src/AppContext.cpp" line="739"/>
         <source>Nothing to recognize</source>
         <translation>Нечего распознавать</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="197"/>
+        <location filename="../src/AppContext.cpp" line="199"/>
         <source>Unisic %1 installed - it will start on the next launch</source>
         <translation>Unisic %1 установлен - он запустится при следующем старте</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="715"/>
+        <location filename="../src/AppContext.cpp" line="717"/>
         <source>Recognizing text…</source>
         <translation>Распознавание текста…</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="720"/>
+        <location filename="../src/AppContext.cpp" line="722"/>
         <source>No text found</source>
         <translation>Текст не найден</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="723"/>
+        <location filename="../src/AppContext.cpp" line="725"/>
         <source>Text copied</source>
         <translation>Текст скопирован</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="902"/>
+        <location filename="../src/AppContext.cpp" line="904"/>
         <source>Capture failed: %1</source>
         <translation>Не удалось сделать снимок: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="909"/>
+        <location filename="../src/AppContext.cpp" line="911"/>
         <source>. Install Unisic (sudo cmake --install build) and launch it from the application menu so KDE authorizes it, and check that xdg-desktop-portal-kde is running.</source>
         <translation>. Установите Unisic (sudo cmake --install build) и запустите его из меню приложений, чтобы KDE выдал ему права, и проверьте, что xdg-desktop-portal-kde работает.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="922"/>
+        <location filename="../src/AppContext.cpp" line="924"/>
         <source>. Install &apos;grim&apos; (works on sway/niri/Hyprland-style compositors) or an xdg-desktop-portal backend for your desktop.</source>
         <translation>. Установите «grim» (работает в композиторах вроде sway/niri/Hyprland) или бэкенд xdg-desktop-portal для вашего рабочего стола.</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="701"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="710"/>
         <source>Dev: text render: %1</source>
         <translation>Dev: отрисовка текста: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="713"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="722"/>
         <source>Dev: keystroke badge: %1; input access: %2</source>
         <translation>Dev: плашка клавиш: %1; доступ к устройствам ввода: %2</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1513"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1522"/>
         <source>Dev: shape edit: %1</source>
         <translation>Dev: правка фигуры: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5764"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="2088"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="3886"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2097"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3963"/>
+        <location filename="../src/AppContext.cpp" line="5813"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2100"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2109"/>
         <source>Dev: language: %1</source>
         <translation>Dev: язык: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2162"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2171"/>
         <source>Dev: OCR boxes: FAIL (%1)</source>
         <translation>Dev: рамки OCR: FAIL (%1)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2164"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2173"/>
         <source>Dev: OCR boxes: %1 (%2 glyphs)</source>
         <translation>Dev: рамки OCR: %1 (глифов: %2)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2275"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2284"/>
         <source>Dev: played capture sound &apos;%1&apos;</source>
         <translation>Dev: воспроизведён звук снимка «%1»</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1556"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1565"/>
         <source>Dev: capture on release: %1</source>
         <translation>Dev: снимок при отпускании: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="186"/>
+        <location filename="../src/AppContext.cpp" line="188"/>
         <source>Opened a terminal to install the update.</source>
         <translation>Открыт терминал для установки обновления.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="187"/>
+        <location filename="../src/AppContext.cpp" line="189"/>
         <source>Couldn&apos;t start the update: %1</source>
         <translation>Не удалось запустить обновление: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="986"/>
+        <location filename="../src/AppContext.cpp" line="988"/>
         <source>Reading key presses needs access to input devices. Run “%1”, then log out and back in.</source>
         <translation>Для чтения нажатий клавиш нужен доступ к устройствам ввода. Выполните «%1», затем выйдите из системы и войдите снова.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1285"/>
-        <location filename="../src/AppContext.cpp" line="1287"/>
-        <location filename="../src/AppContext.cpp" line="1351"/>
-        <location filename="../src/AppContext.cpp" line="1353"/>
-        <location filename="../src/AppContext.cpp" line="1363"/>
+        <location filename="../src/AppContext.cpp" line="1300"/>
+        <location filename="../src/AppContext.cpp" line="1302"/>
+        <location filename="../src/AppContext.cpp" line="1366"/>
+        <location filename="../src/AppContext.cpp" line="1368"/>
+        <location filename="../src/AppContext.cpp" line="1378"/>
         <source>Empty capture</source>
         <translation>Пустой снимок</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1321"/>
+        <location filename="../src/AppContext.cpp" line="1336"/>
         <source>No region to re-capture</source>
         <translation>Нет области для повторного снимка</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1322"/>
+        <location filename="../src/AppContext.cpp" line="1337"/>
         <source>No region to re-capture yet - take a region screenshot first</source>
         <translation>Области для повторного снимка ещё нет - сначала сделайте снимок области</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1331"/>
+        <location filename="../src/AppContext.cpp" line="1346"/>
         <source>Region&apos;s screen is no longer connected</source>
         <translation>Экран этой области больше не подключён</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1332"/>
+        <location filename="../src/AppContext.cpp" line="1347"/>
         <source>The screen that region was on is no longer connected</source>
         <translation>Экран, на котором была эта область, больше не подключён</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1364"/>
+        <location filename="../src/AppContext.cpp" line="1379"/>
         <source>The stored region no longer fits that screen</source>
         <translation>Сохранённая область больше не помещается на этом экране</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1489"/>
+        <location filename="../src/AppContext.cpp" line="1504"/>
         <source>Recording a single window needs a window picker this desktop does not provide - record the screen or a region instead.</source>
         <translation>Для записи отдельного окна нужен выбор окна, которого этот рабочий стол не предоставляет - запишите экран или область.</translation>
     </message>
@@ -179,7 +179,7 @@
         <translation type="vanished">нет активного окна</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2424"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2433"/>
         <source>no screen</source>
         <translation>нет экрана</translation>
     </message>
@@ -188,7 +188,7 @@
         <translation type="vanished">Активное окно за пределами экрана - записывать нечего.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1830"/>
+        <location filename="../src/AppContext.cpp" line="1845"/>
         <source>No log file was opened for this run</source>
         <translation>Для этого запуска файл журнала не открывался</translation>
     </message>
@@ -217,27 +217,27 @@
         <translation type="vanished">Необязательно. Установите «wl-clipboard» для самого надёжного копирования в буфер обмена в Wayland.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1873"/>
+        <location filename="../src/AppContext.cpp" line="1888"/>
         <source>OCR language pack</source>
         <translation>Языковой пакет OCR</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1874"/>
+        <location filename="../src/AppContext.cpp" line="1889"/>
         <source>Found - text recognition (OCR) is ready.</source>
         <translation>Найден - распознавание текста (OCR) готово.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1875"/>
+        <location filename="../src/AppContext.cpp" line="1890"/>
         <source>Missing. OCR is built in but no Tesseract language pack is installed. Install one, e.g. &quot;tesseract-langpack-eng&quot;.</source>
         <translation>Отсутствует. OCR встроен, но не установлен ни один языковой пакет Tesseract. Установите какой-нибудь, например «tesseract-langpack-eng».</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1878"/>
+        <location filename="../src/AppContext.cpp" line="1893"/>
         <source>OCR auto-language (osd)</source>
         <translation>Автоопределение языка OCR (osd)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1879"/>
+        <location filename="../src/AppContext.cpp" line="1894"/>
         <source>Found - OCR detects the script of each capture automatically.</source>
         <translation>Найден - OCR сам определяет письменность каждого снимка.</translation>
     </message>
@@ -250,12 +250,12 @@
         <translation type="vanished">Dev: значок нажатия клавиш: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="724"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="733"/>
         <source>Dev: custom theme: %1</source>
         <translation>Dev: своя тема: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="852"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="861"/>
         <source>Dev: diagnostics copied (%1 chars)</source>
         <translation>Dev: диагностика скопирована (символов: %1)</translation>
     </message>
@@ -264,32 +264,32 @@
         <translation type="vanished">Dev: проверка системы: проверок %1, отсутствует %2 (из них основных %3)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2235"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2244"/>
         <source>Dev: OCR auto language: %1 (installed: %2; %3; map: %4)</source>
         <translation>Dev: автоязык OCR: %1 (установлено: %2; %3; карта: %4)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2283"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2292"/>
         <source>Dev: played recording sound &apos;%1&apos;</source>
         <translation>Dev: воспроизведён звук записи «%1»</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2355"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2364"/>
         <source>Dev: full-screen countdown finished - recording would start now</source>
         <translation>Dev: полноэкранный отсчёт закончился - запись началась бы сейчас</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2356"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2365"/>
         <source>Dev: full-screen countdown fell back to a toast (no record-border support)</source>
         <translation>Dev: полноэкранный отсчёт заменён всплывающим сообщением (нет поддержки рамки записи)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2402"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2411"/>
         <source>Dev: active-window geometry needs KWin on the session bus</source>
         <translation>Dev: геометрия активного окна требует KWin на шине сеанса</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2412"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2421"/>
         <source>Dev: active-window geometry FAILED - %1</source>
         <translation>Dev: геометрия активного окна НЕ УДАЛАСЬ - %1</translation>
     </message>
@@ -298,1004 +298,1009 @@
         <translation type="vanished">Dev: активное окно %1x%2 в %3,%4 (логические) на %5, DPR %6</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2457"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2466"/>
         <source>Dev: ALL notifications are disabled in Settings (Preferences → Show notifications)</source>
         <translation>Dev: ВСЕ уведомления отключены в настройках (Параметры → Показывать уведомления)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2462"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2471"/>
         <source>Dev: stylized cards are off - falling back to a native desktop notification</source>
         <translation>Dev: стилизованные карточки выключены - используется системное уведомление рабочего стола</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2466"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2475"/>
         <source>Dev: cards are currently muted (fullscreen / Do Not Disturb inhibition is active)</source>
         <translation>Dev: карточки сейчас заглушены (действует запрет полноэкранного режима или режима «Не беспокоить»)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2690"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2699"/>
         <source>Dev: added a test history entry</source>
         <translation>Dev: добавлена тестовая запись в историю</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2699"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2708"/>
         <source>Dev: added a STARRED history entry; try Clear all / delete on it</source>
         <translation>Dev: добавлена ИЗБРАННАЯ запись в историю; попробуйте на ней «Очистить всё» и удаление</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2710"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="2916"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2719"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2925"/>
         <source>Dev: couldn&apos;t save the test image</source>
         <translation>Dev: не удалось сохранить тестовое изображение</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3386"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3463"/>
         <source>Dev: template variables: %1</source>
         <translation>Dev: переменные шаблона: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3541"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3618"/>
         <source>Dev: vgy.me support: %1</source>
         <translation>Dev: поддержка vgy.me: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3548"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3625"/>
         <source>Dev: settings round-trip: %1</source>
         <translation>Dev: экспорт и импорт настроек: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3589"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3666"/>
         <source>Dev: uploading a test image to &apos;%1&apos;…</source>
         <translation>Dev: отправка тестового изображения на «%1»…</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3592"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3669"/>
         <source>Dev: upload OK: %1</source>
         <translation>Dev: отправка успешна: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3594"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3671"/>
         <source>Dev: upload failed: %1</source>
         <translation>Dev: не удалось отправить: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3920"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3997"/>
         <source>Alternate hotkey test</source>
         <translation>Проверка запасных горячих клавиш</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3946"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="4023"/>
         <source>Dev: alternate hotkeys - %1</source>
         <translation>Dev: запасные горячие клавиши - %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3954"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="4031"/>
         <source>Dev: KGlobalAccel not available (backend: %1)</source>
         <translation>Dev: KGlobalAccel недоступен (бэкенд: %1)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3955"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="4032"/>
         <source>none</source>
         <translation>нет</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5553"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="3963"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="4040"/>
+        <location filename="../src/AppContext.cpp" line="5602"/>
         <source>Hotkey taken by another app: %1. Pick a different key in Settings → Hotkeys, or free it in System Settings → Shortcuts.</source>
         <translation>Горячая клавиша занята другим приложением: %1. Выберите другую клавишу в «Настройки → Горячие клавиши» или освободите её в «Параметры системы → Комбинации клавиш».</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3967"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="4044"/>
         <source>Hotkeys: all %1 bound in the daemon</source>
         <translation>Горячие клавиши: все %1 зарегистрированы в службе</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3969"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="4046"/>
         <source>Hotkeys: %1 of %2 were unbound and have been re-asserted (details in the log)</source>
         <translation>Горячие клавиши: %1 из %2 были потеряны и зарегистрированы заново (подробности в журнале)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="2912"/>
-        <location filename="../src/AppContext.cpp" line="3081"/>
-        <location filename="../src/AppContext.cpp" line="4458"/>
+        <location filename="../src/AppContext.cpp" line="2961"/>
+        <location filename="../src/AppContext.cpp" line="3130"/>
+        <location filename="../src/AppContext.cpp" line="4507"/>
         <source>Saved %1</source>
         <translation>Сохранено: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="2929"/>
-        <location filename="../src/AppContext.cpp" line="3068"/>
-        <location filename="../src/AppContext.cpp" line="4077"/>
-        <location filename="../src/AppContext.cpp" line="4097"/>
-        <location filename="../src/AppContext.cpp" line="4273"/>
-        <location filename="../src/AppContext.cpp" line="4295"/>
+        <location filename="../src/AppContext.cpp" line="2978"/>
+        <location filename="../src/AppContext.cpp" line="3117"/>
+        <location filename="../src/AppContext.cpp" line="4126"/>
+        <location filename="../src/AppContext.cpp" line="4146"/>
+        <location filename="../src/AppContext.cpp" line="4322"/>
+        <location filename="../src/AppContext.cpp" line="4344"/>
         <source>Upload failed: %1</source>
         <translation>Не удалось отправить: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3017"/>
+        <location filename="../src/AppContext.cpp" line="3066"/>
         <source>Could not save to %1. Check the save folder in Settings</source>
         <translation>Не удалось сохранить в %1. Проверьте папку сохранения в настройках</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3263"/>
+        <location filename="../src/AppContext.cpp" line="3312"/>
         <source>Images (*.png *.jpg *.jpeg *.webp *.bmp *.tif *.tiff *.avif)</source>
         <translation>Изображения (*.png *.jpg *.jpeg *.webp *.bmp *.tif *.tiff *.avif)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3264"/>
+        <location filename="../src/AppContext.cpp" line="3313"/>
         <source>Recordings (*.mp4 *.webm *.gif *.mkv *.mov)</source>
         <translation>Записи (*.mp4 *.webm *.gif *.mkv *.mov)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3265"/>
+        <location filename="../src/AppContext.cpp" line="3314"/>
         <source>Images and recordings (*.png *.jpg *.jpeg *.webp *.bmp *.tif *.tiff *.avif *.mp4 *.webm *.gif *.mkv *.mov)</source>
         <translation>Изображения и записи (*.png *.jpg *.jpeg *.webp *.bmp *.tif *.tiff *.avif *.mp4 *.webm *.gif *.mkv *.mov)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3267"/>
+        <location filename="../src/AppContext.cpp" line="3316"/>
         <source>All files (*)</source>
         <translation>Все файлы (*)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3272"/>
+        <location filename="../src/AppContext.cpp" line="3321"/>
         <source>Open an image to edit</source>
         <translation>Открыть изображение для правки</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3275"/>
+        <location filename="../src/AppContext.cpp" line="3324"/>
         <source>Open a recording to trim</source>
         <translation>Открыть запись для обрезки</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5007"/>
-        <location filename="../src/AppContext.cpp" line="5042"/>
+        <location filename="../src/AppContext.cpp" line="5056"/>
+        <location filename="../src/AppContext.cpp" line="5091"/>
         <source>None of the selected captures are saved on disk.</source>
         <translation>Ни один из выбранных снимков не сохранён на диске.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5011"/>
+        <location filename="../src/AppContext.cpp" line="5060"/>
         <source>Export captures to ZIP</source>
         <translation>Экспорт снимков в ZIP</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5013"/>
+        <location filename="../src/AppContext.cpp" line="5062"/>
         <source>ZIP archive (*.zip)</source>
         <translation>Архив ZIP (*.zip)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5016"/>
+        <location filename="../src/AppContext.cpp" line="5065"/>
         <source>Exporting %1 captures…</source>
         <translation>Экспорт снимков (%1)…</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5033"/>
+        <location filename="../src/AppContext.cpp" line="5082"/>
         <source>The “zip” program is not installed - install it and try again.</source>
         <translation>Программа «zip» не установлена - установите её и попробуйте снова.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5059"/>
+        <location filename="../src/AppContext.cpp" line="5108"/>
         <source>Could not create a temporary folder: %1</source>
         <translation>Не удалось создать временную папку: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5086"/>
+        <location filename="../src/AppContext.cpp" line="5135"/>
         <source>Exported %1 captures to %2</source>
         <translation>Экспортировано снимков: %1 в %2</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5090"/>
+        <location filename="../src/AppContext.cpp" line="5139"/>
         <source>Export failed: %1</source>
         <translation>Не удалось экспортировать: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5091"/>
+        <location filename="../src/AppContext.cpp" line="5140"/>
         <source>zip exited with code %1</source>
         <translation>zip завершился с кодом %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5100"/>
+        <location filename="../src/AppContext.cpp" line="5149"/>
         <source>Could not run the “zip” program.</source>
         <translation>Не удалось запустить программу «zip».</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5234"/>
-        <location filename="../src/AppContext.cpp" line="5503"/>
-        <location filename="../src/AppContext.cpp" line="5762"/>
+        <location filename="../src/AppContext.cpp" line="5283"/>
+        <location filename="../src/AppContext.cpp" line="5552"/>
+        <location filename="../src/AppContext.cpp" line="5811"/>
         <source>Copy last capture</source>
         <translation>Копировать последний снимок</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3137"/>
+        <location filename="../src/AppContext.cpp" line="3186"/>
         <source>Uploaded, link copied</source>
         <translation>Отправлено, ссылка скопирована</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="180"/>
+        <location filename="../src/AppContext.cpp" line="182"/>
         <source>Unisic %1 is available - updating automatically</source>
         <translation>Доступен Unisic %1 - обновление выполняется автоматически</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="181"/>
+        <location filename="../src/AppContext.cpp" line="183"/>
         <source>Unisic %1 is available</source>
         <translation>Доступен Unisic %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="260"/>
+        <location filename="../src/AppContext.cpp" line="262"/>
         <source>Instant replay failed: %1</source>
         <translation>Не удалось сохранить мгновенный повтор: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="880"/>
-        <location filename="../src/AppContext.cpp" line="885"/>
+        <location filename="../src/AppContext.cpp" line="882"/>
+        <location filename="../src/AppContext.cpp" line="887"/>
         <source>Capture in %1…</source>
         <translation>Снимок через %1…</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="916"/>
+        <location filename="../src/AppContext.cpp" line="918"/>
         <source>. GNOME is blocking silent screenshots for Unisic - run &quot;flatpak permission-reset screenshot&quot; and retry, and check that xdg-desktop-portal-gnome is running.</source>
         <translation>. GNOME блокирует тихие снимки экрана для Unisic - выполните «flatpak permission-reset screenshot», повторите попытку и проверьте, что xdg-desktop-portal-gnome работает.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="974"/>
+        <location filename="../src/AppContext.cpp" line="976"/>
         <source>Reading mouse clicks needs access to input devices. Run “%1”, then log out and back in.</source>
         <translation>Для чтения щелчков мыши нужен доступ к устройствам ввода. Выполните «%1», затем выйдите из системы и войдите снова.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1096"/>
-        <location filename="../src/AppContext.cpp" line="1109"/>
-        <location filename="../src/AppContext.cpp" line="1141"/>
-        <location filename="../src/AppContext.cpp" line="1151"/>
-        <location filename="../src/AppContext.cpp" line="1217"/>
-        <location filename="../src/AppContext.cpp" line="1228"/>
-        <location filename="../src/AppContext.cpp" line="1260"/>
-        <location filename="../src/AppContext.cpp" line="1271"/>
-        <location filename="../src/AppContext.cpp" line="1299"/>
-        <location filename="../src/AppContext.cpp" line="1343"/>
-        <location filename="../src/AppContext.cpp" line="1399"/>
-        <location filename="../src/AppContext.cpp" line="1410"/>
         <location filename="../src/main.cpp" line="308"/>
+        <location filename="../src/AppContext.cpp" line="1111"/>
+        <location filename="../src/AppContext.cpp" line="1124"/>
+        <location filename="../src/AppContext.cpp" line="1156"/>
+        <location filename="../src/AppContext.cpp" line="1166"/>
+        <location filename="../src/AppContext.cpp" line="1232"/>
+        <location filename="../src/AppContext.cpp" line="1243"/>
+        <location filename="../src/AppContext.cpp" line="1275"/>
+        <location filename="../src/AppContext.cpp" line="1286"/>
+        <location filename="../src/AppContext.cpp" line="1314"/>
+        <location filename="../src/AppContext.cpp" line="1358"/>
+        <location filename="../src/AppContext.cpp" line="1414"/>
+        <location filename="../src/AppContext.cpp" line="1425"/>
         <source>Another capture is already active</source>
         <translation>Другой снимок уже выполняется</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1168"/>
-        <location filename="../src/AppContext.cpp" line="1196"/>
-        <location filename="../src/AppContext.cpp" line="1248"/>
+        <location filename="../src/AppContext.cpp" line="1183"/>
+        <location filename="../src/AppContext.cpp" line="1211"/>
+        <location filename="../src/AppContext.cpp" line="1263"/>
         <source>Capture cancelled</source>
         <translation>Снимок отменён</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1529"/>
+        <location filename="../src/AppContext.cpp" line="1544"/>
         <source>Start instant replay first</source>
         <translation>Сначала запустите мгновенный повтор</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1533"/>
+        <location filename="../src/AppContext.cpp" line="1548"/>
         <source>Saving instant replay…</source>
         <translation>Сохранение мгновенного повтора…</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1601"/>
-        <location filename="../src/AppContext.cpp" line="1611"/>
+        <location filename="../src/AppContext.cpp" line="1616"/>
+        <location filename="../src/AppContext.cpp" line="1626"/>
         <source>Recording in %1…</source>
         <translation>Запись через %1…</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="731"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="740"/>
         <source>Dev: clipboard paste: %1</source>
         <translation>Dev: вставка из буфера обмена: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="742"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="751"/>
         <source>Dev: capture delay: %1</source>
         <translation>Dev: задержка снимка: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="761"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="770"/>
         <source>Dev: copy as: %1</source>
         <translation>Dev: копировать как: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="770"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="779"/>
         <source>Dev: watermark: %1</source>
         <translation>Dev: водяной знак: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="814"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="823"/>
         <source>Dev: watermark preview: %1</source>
         <translation>Dev: предпросмотр водяного знака: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="821"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="830"/>
         <source>Dev: callout: %1</source>
         <translation>Dev: выноска: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="828"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="837"/>
         <source>Dev: Shift snap: %1</source>
         <translation>Dev: привязка по Shift: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="836"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="845"/>
         <source>Dev: pen line click: %1</source>
         <translation>Dev: линия пером по щелчку: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="865"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="874"/>
         <source>Dev: system check: %1 checks, %2 missing</source>
         <translation>Dev: проверка системы: проверок %1, отсутствует %2</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="881"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="890"/>
         <source>Dev: do not disturb: unsupported on this desktop</source>
         <translation>Dev: «Не беспокоить»: не поддерживается этим рабочим столом</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="888"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="897"/>
         <source>Dev: do not disturb: %1</source>
         <translation>Dev: «Не беспокоить»: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="905"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="914"/>
         <source>Dev: external action: %1</source>
         <translation>Dev: внешнее действие: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="913"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="922"/>
         <source>Dev: external action timeout: %1</source>
         <translation>Dev: тайм-аут внешнего действия: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="924"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="933"/>
         <source>Dev: task preset: %1</source>
         <translation>Dev: набор задач: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="941"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="950"/>
         <source>Dev: CLI output: %1</source>
         <translation>Dev: вывод из командной строки: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="949"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="958"/>
         <source>Dev: measure tools: %1</source>
         <translation>Dev: инструменты измерения: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="988"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="997"/>
         <source>Dev: per-app audio: %1</source>
         <translation>Dev: звук по приложениям: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="997"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1006"/>
         <source>Dev: instant replay: recording unavailable</source>
         <translation>Dev: мгновенный повтор: запись недоступна</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1030"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1039"/>
         <source>Dev: trim recording: ffmpeg unavailable</source>
         <translation>Dev: обрезка записи: ffmpeg недоступен</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1041"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="1049"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1050"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1058"/>
         <source>Dev: trim recording: FAIL</source>
         <translation>Dev: обрезка записи: FAIL</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1066"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1075"/>
         <source>Dev: trim cut: %1</source>
         <translation>Dev: вырезка при обрезке: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1148"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1157"/>
         <source>Dev: pause excise: %1</source>
         <translation>Dev: вырезание пауз: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1444"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1453"/>
         <source>Dev: screenshot cursor: %1</source>
         <translation>Dev: курсор на снимке: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1598"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1607"/>
         <source>Dev: overlay mode badge: %1</source>
         <translation>Dev: значок режима оверлея: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1737"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1746"/>
         <source>Dev: overlay preview: %1</source>
         <translation>Dev: предпросмотр слоя: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1786"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1795"/>
         <source>Dev: magnifier: %1</source>
         <translation>Dev: лупа: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1821"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1830"/>
         <source>Dev: eyedropper: %1</source>
         <translation>Dev: пипетка: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1883"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1892"/>
         <source>Dev: pixel loupe: %1</source>
         <translation>Dev: пиксельная лупа: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2109"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2118"/>
         <source>Dev: update check: %1</source>
         <translation>Dev: проверка обновлений: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2136"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2145"/>
         <source>Dev: auto-restart gate: idle - an installed update would restart now</source>
         <translation>Dev: условие автоперезапуска: простой - установленное обновление перезапустилось бы сейчас</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2137"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2146"/>
         <source>Dev: auto-restart gate: deferred (%1)</source>
         <translation>Dev: условие автоперезапуска: отложено (%1)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3899"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3976"/>
         <source>Dev: tray menu: %1</source>
         <translation>Dev: меню в трее: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="5315"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="5409"/>
         <source>Dev: scrolling hand-off: %1</source>
         <translation>Dev: передача прокрутки: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="5322"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="5416"/>
         <source>Dev: scrolling stitch: %1</source>
         <translation>Dev: объединение при прокрутке: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1969"/>
+        <location filename="../src/AppContext.cpp" line="1984"/>
         <source>recording</source>
         <translation>идёт запись</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1971"/>
+        <location filename="../src/AppContext.cpp" line="1986"/>
         <source>capture in progress</source>
         <translation>выполняется снимок</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1973"/>
+        <location filename="../src/AppContext.cpp" line="1988"/>
         <source>selection overlay open</source>
         <translation>открыт слой выделения</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1975"/>
+        <location filename="../src/AppContext.cpp" line="1990"/>
         <source>editor windows open</source>
         <translation>открыты окна редактора</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1977"/>
+        <location filename="../src/AppContext.cpp" line="1992"/>
         <source>main window visible</source>
         <translation>главное окно на экране</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2175"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2184"/>
         <source>Dev: OCR highlight + redact: FAIL (%1)</source>
         <translation>Dev: подсветка и скрытие через OCR: FAIL (%1)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2176"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2185"/>
         <source>Dev: OCR highlight + redact: %1</source>
         <translation>Dev: подсветка и скрытие через OCR: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2185"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2194"/>
         <source>Dev: cursor overlay: %1</source>
         <translation>Dev: слой курсора: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2192"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2201"/>
         <source>Dev: style presets: %1</source>
         <translation>Dev: наборы стилей: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2200"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2209"/>
         <source>Dev: auto-redact pattern: FAIL (%1)</source>
         <translation>Dev: шаблон автоскрытия: FAIL (%1)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2201"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2210"/>
         <source>Dev: auto-redact pattern: %1</source>
         <translation>Dev: шаблон автоскрытия: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2247"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2256"/>
         <source>Dev: ZIP export: SKIP (zip not installed)</source>
         <translation>Dev: экспорт в ZIP: SKIP (zip не установлен)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2261"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2270"/>
         <source>Dev: ZIP export: %1</source>
         <translation>Dev: экспорт в ZIP: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2262"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2271"/>
         <source>PASS (%1)</source>
         <translation>PASS (%1)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2262"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2271"/>
         <source>FAIL (%1)</source>
         <translation>FAIL (%1)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2291"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2300"/>
         <source>Dev: played record-start sound &apos;%1&apos;</source>
         <translation>Dev: воспроизведён звук начала записи «%1»</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2299"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2308"/>
         <source>Dev: played the fixed trash sound</source>
         <translation>Dev: воспроизведён стандартный звук удаления</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2307"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="2339"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2316"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2348"/>
         <source>Dev: countdown is 0s (off) - set it in Recording settings</source>
         <translation>Dev: обратный отсчёт равен 0 с (выключен) - задайте его в настройках записи</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2330"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2339"/>
         <source>Dev: countdown finished - recording would start now</source>
         <translation>Dev: обратный отсчёт закончился - запись началась бы сейчас</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2368"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2377"/>
         <source>Save capture (dev test)</source>
         <translation>Сохранить снимок (тест разработчика)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3005"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="2370"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2379"/>
+        <location filename="../src/AppContext.cpp" line="3054"/>
         <source>Images (*.png *.jpg *.jpeg *.webp)</source>
         <translation>Изображения (*.png *.jpg *.jpeg *.webp)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2372"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2381"/>
         <source>Dev: save dialog cancelled</source>
         <translation>Dev: диалог сохранения отменён</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2377"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2386"/>
         <source>Dev: save FAILED</source>
         <translation>Dev: сохранить НЕ УДАЛОСЬ</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2378"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2387"/>
         <source>Dev: saved to %1</source>
         <translation>Dev: сохранено в %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2390"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2399"/>
         <source>Dev: next file = %1/%2 (counter=%3, subfolders=%4, stripMeta=%5)</source>
         <translation>Dev: следующий файл = %1/%2 (счётчик=%3, подпапки=%4, stripMeta=%5)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2393"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="2394"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2402"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2403"/>
         <source>on</source>
         <translation>вкл</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2393"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="2394"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2402"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2403"/>
         <source>off</source>
         <translation>выкл</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2422"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2431"/>
         <source>Dev: active window %1x%2 at %3,%4 (logical) on %5, DPR %6; overlay selects %7x%8 at %9,%10</source>
         <translation>Dev: активное окно %1x%2 в %3,%4 (логические) на %5, DPR %6; наложение выделяет %7x%8 в %9,%10</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2436"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2445"/>
         <source>Dev: card preview needs the stylized card enabled (Preferences → Show notifications / capture card)</source>
         <translation>Dev: для предпросмотра карточки нужна включённая стилизованная карточка (Параметры → Показывать уведомления / карточку снимка)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2442"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2451"/>
         <source>Dev: card preview FAILED (no card was created)</source>
         <translation>Dev: предпросмотр карточки НЕ УДАЛСЯ (карточка не создана)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2445"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2454"/>
         <source>Dev: card preview - withdrawing in 3 s</source>
         <translation>Dev: предпросмотр карточки - закроется через 3 с</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2555"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2564"/>
         <source>Dev: editor zoom %1</source>
         <translation>Dev: масштаб редактора: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2675"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2684"/>
         <source>Dev: leave filename field %1</source>
         <translation>Dev: выход из поля имени файла: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2727"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2736"/>
         <source>Dev: history drag payload: %1</source>
         <translation>Dev: содержимое перетаскивания из истории: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2752"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2761"/>
         <source>Dev: notification drag payload: %1</source>
         <translation>Dev: содержимое перетаскивания из уведомления: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2770"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2779"/>
         <source>Dev: copy last capture: %1</source>
         <translation>Dev: копировать последний снимок: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2782"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2791"/>
         <source>Dev: Klipper clipboard history: %1</source>
         <translation>Dev: история буфера обмена Klipper: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2888"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2897"/>
         <source>Dev: record border: unsupported on this compositor</source>
         <translation>Dev: рамка записи: не поддерживается этим композитором</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2901"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2910"/>
         <source>Dev: record border shown for 4 s</source>
         <translation>Dev: рамка записи показана на 4 с</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2902"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2911"/>
         <source>Dev: record border FAILED to show</source>
         <translation>Dev: рамку записи показать НЕ УДАЛОСЬ</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3527"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3348"/>
+        <source>Dev: S3 destination: %1</source>
+        <translation>Dev: назначение S3: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/diag/SmokeTests.cpp" line="3604"/>
         <source>Dev: history search + filters: %1</source>
         <translation>Dev: поиск и фильтры в истории: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3534"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3611"/>
         <source>Dev: Imgur Client-ID guard: %1</source>
         <translation>Dev: защита от встроенного Imgur Client-ID: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3003"/>
+        <location filename="../src/AppContext.cpp" line="3052"/>
         <source>Save capture</source>
         <translation>Сохранить снимок</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="2992"/>
-        <location filename="../src/AppContext.cpp" line="3009"/>
+        <location filename="../src/AppContext.cpp" line="3041"/>
+        <location filename="../src/AppContext.cpp" line="3058"/>
         <source>Could not save to %1</source>
         <translation>Не удалось сохранить в %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="898"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="907"/>
         <source>Dev: hide while capturing: %1</source>
         <translation>Dev: скрывать во время снимка: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3119"/>
+        <location filename="../src/AppContext.cpp" line="3168"/>
         <source>No capture to copy yet</source>
         <translation>Пока нечего копировать</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3139"/>
+        <location filename="../src/AppContext.cpp" line="3188"/>
         <source>Uploaded: %1</source>
         <translation>Отправлено: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3825"/>
+        <location filename="../src/AppContext.cpp" line="3874"/>
         <source>Can&apos;t open %1 for editing</source>
         <translation>Не удалось открыть %1 для правки</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3835"/>
+        <location filename="../src/AppContext.cpp" line="3884"/>
         <source>Can&apos;t open %1 for preview</source>
         <translation>Не удалось открыть %1 для предпросмотра</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3996"/>
+        <location filename="../src/AppContext.cpp" line="4045"/>
         <source>Sounds (*.wav *.ogg *.oga)</source>
         <translation>Звуки (*.wav *.ogg *.oga)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3997"/>
+        <location filename="../src/AppContext.cpp" line="4046"/>
         <source>Sounds (*.wav)</source>
         <translation>Звуки (*.wav)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3999"/>
+        <location filename="../src/AppContext.cpp" line="4048"/>
         <source>Add capture sound</source>
         <translation>Добавить звук снимка</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4006"/>
+        <location filename="../src/AppContext.cpp" line="4055"/>
         <source>Unsupported sound format (use WAV or OGG)</source>
         <translation>Неподдерживаемый формат звука (нужен WAV или OGG)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4015"/>
+        <location filename="../src/AppContext.cpp" line="4064"/>
         <source>Could not copy the sound file</source>
         <translation>Не удалось скопировать звуковой файл</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4019"/>
+        <location filename="../src/AppContext.cpp" line="4068"/>
         <source>Added capture sound &quot;%1&quot;</source>
         <translation>Добавлен звук снимка «%1»</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4027"/>
+        <location filename="../src/AppContext.cpp" line="4076"/>
         <source>Can&apos;t open %1 to copy</source>
         <translation>Не удалось открыть %1 для копирования</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4031"/>
+        <location filename="../src/AppContext.cpp" line="4080"/>
         <source>Image copied</source>
         <translation>Изображение скопировано</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4038"/>
-        <location filename="../src/AppContext.cpp" line="4852"/>
+        <location filename="../src/AppContext.cpp" line="4087"/>
+        <location filename="../src/AppContext.cpp" line="4901"/>
         <source>Save the capture first to copy its file path</source>
         <translation>Сначала сохраните снимок, чтобы скопировать путь к файлу</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4052"/>
+        <location filename="../src/AppContext.cpp" line="4101"/>
         <source>Uploading %1…</source>
         <translation>Отправка %1…</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3131"/>
-        <location filename="../src/AppContext.cpp" line="4084"/>
-        <location filename="../src/AppContext.cpp" line="4102"/>
+        <location filename="../src/AppContext.cpp" line="3180"/>
+        <location filename="../src/AppContext.cpp" line="4133"/>
+        <location filename="../src/AppContext.cpp" line="4151"/>
         <source>Uploaded</source>
         <translation>Отправлено</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4211"/>
+        <location filename="../src/AppContext.cpp" line="4260"/>
         <source>Couldn&apos;t open preview</source>
         <translation>Не удалось открыть предпросмотр</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4613"/>
-        <location filename="../src/AppContext.cpp" line="4699"/>
+        <location filename="../src/AppContext.cpp" line="4662"/>
+        <location filename="../src/AppContext.cpp" line="4748"/>
         <source>Saved as PNG to keep transparency</source>
         <translation>Сохранено в PNG, чтобы сохранить прозрачность</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4821"/>
+        <location filename="../src/AppContext.cpp" line="4870"/>
         <source>No valid link to turn into a QR code</source>
         <translation>Нет подходящей ссылки для QR-кода</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4828"/>
+        <location filename="../src/AppContext.cpp" line="4877"/>
         <source>Could not create QR code</source>
         <translation>Не удалось создать QR-код</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4832"/>
+        <location filename="../src/AppContext.cpp" line="4881"/>
         <source>QR code preview</source>
         <translation>Предпросмотр QR-кода</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4865"/>
+        <location filename="../src/AppContext.cpp" line="4914"/>
         <source>Save or upload the capture first to copy it as a link</source>
         <translation>Сначала сохраните или отправьте снимок, чтобы скопировать ссылку на него</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3091"/>
+        <location filename="../src/AppContext.cpp" line="3140"/>
         <source>Could not encode the capture</source>
         <translation>Не удалось закодировать снимок</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1179"/>
-        <location filename="../src/AppContext.cpp" line="1180"/>
+        <location filename="../src/AppContext.cpp" line="1194"/>
+        <location filename="../src/AppContext.cpp" line="1195"/>
         <source>Selection is too small for scrolling capture</source>
         <translation>Область слишком мала для захвата с прокруткой</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1853"/>
-        <location filename="../src/AppContext.cpp" line="1869"/>
+        <location filename="../src/AppContext.cpp" line="1868"/>
+        <location filename="../src/AppContext.cpp" line="1884"/>
         <source>Found.</source>
         <translation>Найдено.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1854"/>
-        <location filename="../src/AppContext.cpp" line="1870"/>
+        <location filename="../src/AppContext.cpp" line="1869"/>
+        <location filename="../src/AppContext.cpp" line="1885"/>
         <source>Missing from this install: %1.</source>
         <translation>Отсутствует в этой установке: %1.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3187"/>
+        <location filename="../src/AppContext.cpp" line="3236"/>
         <source>Choose watermark image</source>
         <translation>Выберите изображение водяного знака</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3188"/>
+        <location filename="../src/AppContext.cpp" line="3237"/>
         <source>Images (*.png *.svg *.svgz *.jpg *.jpeg *.webp)</source>
         <translation>Изображения (*.png *.svg *.svgz *.jpg *.jpeg *.webp)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3196"/>
+        <location filename="../src/AppContext.cpp" line="3245"/>
         <source>The watermark image is invalid or too large</source>
         <translation>Изображение водяного знака повреждено или слишком велико</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3201"/>
+        <location filename="../src/AppContext.cpp" line="3250"/>
         <source>Could not load the watermark image</source>
         <translation>Не удалось загрузить изображение водяного знака</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3279"/>
+        <location filename="../src/AppContext.cpp" line="3328"/>
         <source>Open image or recording</source>
         <translation>Открыть изображение или запись</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3313"/>
-        <location filename="../src/AppContext.cpp" line="3356"/>
+        <location filename="../src/AppContext.cpp" line="3362"/>
+        <location filename="../src/AppContext.cpp" line="3405"/>
         <source>Unisic cannot edit this file type</source>
         <translation>Unisic не умеет править файлы этого типа</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3449"/>
+        <location filename="../src/AppContext.cpp" line="3498"/>
         <source>Recording file not found</source>
         <translation>Файл записи не найден</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3454"/>
-        <location filename="../src/AppContext.cpp" line="3505"/>
+        <location filename="../src/AppContext.cpp" line="3503"/>
+        <location filename="../src/AppContext.cpp" line="3554"/>
         <source>Trimming requires ffprobe from the ffmpeg package</source>
         <translation>Для обрезки нужен ffprobe из пакета ffmpeg</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3494"/>
+        <location filename="../src/AppContext.cpp" line="3543"/>
         <source>Could not read the recording duration</source>
         <translation>Не удалось определить длительность записи</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3642"/>
+        <location filename="../src/AppContext.cpp" line="3691"/>
         <source>Invalid trim range</source>
         <translation>Неверный диапазон обрезки</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3551"/>
-        <location filename="../src/AppContext.cpp" line="3572"/>
-        <location filename="../src/AppContext.cpp" line="3646"/>
+        <location filename="../src/AppContext.cpp" line="3600"/>
+        <location filename="../src/AppContext.cpp" line="3621"/>
+        <location filename="../src/AppContext.cpp" line="3695"/>
         <source>Trimming requires ffmpeg</source>
         <translation>Для обрезки нужен ffmpeg</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="963"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="972"/>
         <source>Dev: hardware encoder: %1 (auto→%2, nvenc=%3, vaapi=%4, av1-nvenc=%5)</source>
         <translation>Dev: аппаратный кодировщик: %1 (auto→%2, nvenc=%3, vaapi=%4, av1-nvenc=%5)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="980"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="989"/>
         <source>Dev: recording encoder frozen (SIGSTOP) - press Stop to exercise the watchdog</source>
         <translation>Dev: кодировщик записи заморожен (SIGSTOP) - нажмите «Стоп», чтобы проверить сторожевой таймер</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="981"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="990"/>
         <source>Dev: no live recording encoder to freeze - start a recording first</source>
         <translation>Dev: нет работающего кодировщика записи для заморозки - сначала начните запись</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1227"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1236"/>
         <source>Dev: video quality scale: %1</source>
         <translation>Dev: шкала качества видео: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1234"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1243"/>
         <source>Dev: separate audio tracks: %1</source>
         <translation>Dev: раздельные звуковые дорожки: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1247"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1256"/>
         <source>System audio</source>
         <translation>Системный звук</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1247"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1256"/>
         <source>Microphone</source>
         <translation>Микрофон</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3678"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="1247"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1256"/>
+        <location filename="../src/AppContext.cpp" line="3727"/>
         <source>Mix</source>
         <translation>Микс</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1328"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="1335"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1337"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1344"/>
         <source>Dev: audio inputs: %1</source>
         <translation>Dev: аудиовходы: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="1345"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="1354"/>
         <source>Dev: trim audio edit: %1</source>
         <translation>Dev: правка звука в обрезке: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2148"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2157"/>
         <source>Dev: installer update: checking…</source>
         <translation>Dev: обновление через установщик: проверка…</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2150"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2159"/>
         <source>Dev: installer update: PASS (%1)</source>
         <translation>Dev: обновление через установщик: PASS (%1)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2151"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2160"/>
         <source>Dev: installer update: FAIL (%1)</source>
         <translation>Dev: обновление через установщик: FAIL (%1)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2799"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2808"/>
         <source>memory only</source>
         <translation>только в памяти</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2801"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2810"/>
         <source>Dev: log FAILED to redact a secret</source>
         <translation>Dev: журнал НЕ скрыл секрет</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2802"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2811"/>
         <source>Dev: log OK (%1 lines) - %2</source>
         <translation>Dev: журнал в порядке (строк: %1) - %2</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2818"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2827"/>
         <source>Dev: crash report: could not open a temp file</source>
         <translation>Dev: отчёт о сбое: не удалось открыть временный файл</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2830"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2839"/>
         <source>Dev: crash report renders - opened it in the file manager</source>
         <translation>Dev: отчёт о сбое формируется - открыт в файловом менеджере</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2831"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2840"/>
         <source>Dev: crash report is malformed</source>
         <translation>Dev: отчёт о сбое повреждён</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2853"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2862"/>
         <source>Dev: show in folder: check the file is selected in the file manager</source>
         <translation>Dev: показать в папке: проверьте, что файл выделен в файловом менеджере</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2861"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2870"/>
         <source>Dev: KWin record: interface not granted (desktop file / not KWin)</source>
         <translation>Dev: запись через KWin: интерфейс не выдан (файл .desktop или это не KWin)</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2870"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2879"/>
         <source>Dev: KWin record: stream request failed</source>
         <translation>Dev: запись через KWin: не удалось запросить поток</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2874"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2883"/>
         <source>Dev: KWin record OK - PipeWire node %1, no portal dialog</source>
         <translation>Dev: запись через KWin в порядке - узел PipeWire %1, без диалога портала</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="2878"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="2887"/>
         <source>Dev: KWin record failed: %1</source>
         <translation>Dev: запись через KWin не удалась: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3271"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3280"/>
         <source>Dev: curl destination: %1</source>
         <translation>Dev: назначение curl: %1</translation>
     </message>
@@ -1304,269 +1309,269 @@
         <translation type="vanished">Dev: переменные загрузки: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3437"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3514"/>
         <source>Dev: still GIF: %1</source>
         <translation>Dev: статичный GIF: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3520"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3597"/>
         <source>Dev: image conversion: %1</source>
         <translation>Dev: конвертация изображения: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3582"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3659"/>
         <source>Dev: install channel: %1</source>
         <translation>Dev: канал установки: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3646"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3723"/>
         <source>Dev: server test upload: %1</source>
         <translation>Dev: тестовая отправка на сервер: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3744"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3821"/>
         <source>Dev: drop import: %1</source>
         <translation>Dev: импорт перетаскиванием: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3827"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3904"/>
         <source>Dev: paste import: %1</source>
         <translation>Dev: импорт вставкой: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="3907"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3984"/>
         <source>Dev: record page mode: %1</source>
         <translation>Dev: режим страницы записи: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="4041"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="4118"/>
         <source>Dev: X11 record grab: %1</source>
         <translation>Dev: захват записи в X11: %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="4049"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="4126"/>
         <source>Dev: X11 hotkeys: %1</source>
         <translation>Dev: горячие клавиши X11: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3295"/>
-        <location filename="../src/AppContext.cpp" line="4421"/>
+        <location filename="../src/AppContext.cpp" line="3344"/>
+        <location filename="../src/AppContext.cpp" line="4470"/>
         <source>Can&apos;t find %1</source>
         <translation>Не удалось найти %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3302"/>
-        <location filename="../src/AppContext.cpp" line="3355"/>
+        <location filename="../src/AppContext.cpp" line="3351"/>
+        <location filename="../src/AppContext.cpp" line="3404"/>
         <source>Unisic opens files, not folders</source>
         <translation>Unisic открывает файлы, а не папки</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3332"/>
+        <location filename="../src/AppContext.cpp" line="3381"/>
         <source>Unisic can only open files from this computer</source>
         <translation>Unisic может открывать файлы только с этого компьютера</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3333"/>
+        <location filename="../src/AppContext.cpp" line="3382"/>
         <source>Nothing to open in that drop</source>
         <translation>В перетащенном нет ничего, что можно открыть</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3376"/>
+        <location filename="../src/AppContext.cpp" line="3425"/>
         <source>Opened %1. Drop one file at a time to open the others.</source>
         <translation>Открыт %1. Перетаскивайте по одному файлу, чтобы открыть остальные.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3378"/>
+        <location filename="../src/AppContext.cpp" line="3427"/>
         <source>Opened %1. Nothing else in that drop is a file Unisic can open.</source>
         <translation>Открыт %1. Больше в перетащенном нет файлов, которые Unisic может открыть.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3408"/>
+        <location filename="../src/AppContext.cpp" line="3457"/>
         <source>The clipboard is empty</source>
         <translation>Буфер обмена пуст</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3443"/>
+        <location filename="../src/AppContext.cpp" line="3492"/>
         <source>The clipboard holds no image to paste</source>
         <translation>В буфере обмена нет изображения для вставки</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3615"/>
-        <location filename="../src/AppContext.cpp" line="3630"/>
-        <location filename="../src/AppContext.cpp" line="3764"/>
+        <location filename="../src/AppContext.cpp" line="3664"/>
+        <location filename="../src/AppContext.cpp" line="3679"/>
+        <location filename="../src/AppContext.cpp" line="3813"/>
         <source>Trim failed: %1</source>
         <translation>Не удалось обрезать: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3656"/>
+        <location filename="../src/AppContext.cpp" line="3705"/>
         <source>Trimming recording…</source>
         <translation>Обрезка записи…</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3785"/>
+        <location filename="../src/AppContext.cpp" line="3834"/>
         <source>External action failed: %1</source>
         <translation>Внешнее действие не выполнено: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3791"/>
+        <location filename="../src/AppContext.cpp" line="3840"/>
         <source>External action created %1</source>
         <translation>Внешнее действие создало %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3793"/>
+        <location filename="../src/AppContext.cpp" line="3842"/>
         <source>External action finished</source>
         <translation>Внешнее действие завершено</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="3811"/>
+        <location filename="../src/AppContext.cpp" line="3860"/>
         <source>Could not prepare the external action input</source>
         <translation>Не удалось подготовить данные для внешнего действия</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4068"/>
+        <location filename="../src/AppContext.cpp" line="4117"/>
         <source>Could not encode %1 for upload</source>
         <translation>Не удалось закодировать %1 для отправки</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4425"/>
+        <location filename="../src/AppContext.cpp" line="4474"/>
         <source>Already a %1 file</source>
         <translation>Это уже файл %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4434"/>
+        <location filename="../src/AppContext.cpp" line="4483"/>
         <source>%1 is animated. Trim it instead</source>
         <translation>%1 анимирован. Обрежьте его вместо этого</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4439"/>
+        <location filename="../src/AppContext.cpp" line="4488"/>
         <source>Can&apos;t read %1</source>
         <translation>Не удалось прочитать %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4452"/>
+        <location filename="../src/AppContext.cpp" line="4501"/>
         <source>Couldn&apos;t convert %1</source>
         <translation>Не удалось преобразовать %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4547"/>
+        <location filename="../src/AppContext.cpp" line="4596"/>
         <source>Over %1 MB, so it was converted to %2 (%3 instead of %4)</source>
         <translation>Больше %1 МБ, поэтому файл сконвертирован в %2 (%3 вместо %4)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4566"/>
+        <location filename="../src/AppContext.cpp" line="4615"/>
         <source>GIF needs ffmpeg. Use Save as to write another format</source>
         <translation>Для GIF нужен ffmpeg. Используйте Сохранить как, чтобы записать другой формат</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4567"/>
+        <location filename="../src/AppContext.cpp" line="4616"/>
         <source>Can&apos;t write %1 back as %2. Use Save as</source>
         <translation>Не удаётся записать %1 обратно как %2. Используйте Сохранить как</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4577"/>
-        <location filename="../src/AppContext.cpp" line="4582"/>
-        <location filename="../src/AppContext.cpp" line="4642"/>
-        <location filename="../src/AppContext.cpp" line="4647"/>
+        <location filename="../src/AppContext.cpp" line="4626"/>
+        <location filename="../src/AppContext.cpp" line="4631"/>
+        <location filename="../src/AppContext.cpp" line="4691"/>
+        <location filename="../src/AppContext.cpp" line="4696"/>
         <source>Can&apos;t write %1</source>
         <translation>Не удаётся записать %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4615"/>
-        <location filename="../src/AppContext.cpp" line="4701"/>
+        <location filename="../src/AppContext.cpp" line="4664"/>
+        <location filename="../src/AppContext.cpp" line="4750"/>
         <source>GIF needs ffmpeg. Saved as PNG</source>
         <translation>GIF требует ffmpeg. Сохранено как PNG</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4617"/>
-        <location filename="../src/AppContext.cpp" line="4703"/>
+        <location filename="../src/AppContext.cpp" line="4666"/>
+        <location filename="../src/AppContext.cpp" line="4752"/>
         <source>%1 could not hold this image. Saved as PNG</source>
         <translation>%1 не смог вместить это изображение. Сохранено в PNG</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4875"/>
+        <location filename="../src/AppContext.cpp" line="4924"/>
         <source>Unknown copy format</source>
         <translation>Неизвестный формат копирования</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4975"/>
+        <location filename="../src/AppContext.cpp" line="5024"/>
         <source>Export Unisic settings</source>
         <translation>Экспорт настроек Unisic</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4977"/>
-        <location filename="../src/AppContext.cpp" line="4988"/>
+        <location filename="../src/AppContext.cpp" line="5026"/>
+        <location filename="../src/AppContext.cpp" line="5037"/>
         <source>Unisic settings (*.json)</source>
         <translation>Настройки Unisic (*.json)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4981"/>
+        <location filename="../src/AppContext.cpp" line="5030"/>
         <source>Settings exported</source>
         <translation>Настройки экспортированы</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4987"/>
+        <location filename="../src/AppContext.cpp" line="5036"/>
         <source>Import Unisic settings</source>
         <translation>Импорт настроек Unisic</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="4992"/>
-        <location filename="../src/AppContext.cpp" line="5218"/>
+        <location filename="../src/AppContext.cpp" line="5041"/>
+        <location filename="../src/AppContext.cpp" line="5267"/>
         <source>Settings imported</source>
         <translation>Настройки импортированы</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5115"/>
+        <location filename="../src/AppContext.cpp" line="5164"/>
         <source>No file selected</source>
         <translation>Файл не выбран</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5146"/>
-        <location filename="../src/AppContext.cpp" line="5157"/>
+        <location filename="../src/AppContext.cpp" line="5195"/>
+        <location filename="../src/AppContext.cpp" line="5206"/>
         <source>Cannot write %1</source>
         <translation>Не удалось записать %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5160"/>
+        <location filename="../src/AppContext.cpp" line="5209"/>
         <source>Settings exported to %1</source>
         <translation>Настройки экспортированы в %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5169"/>
+        <location filename="../src/AppContext.cpp" line="5218"/>
         <source>Cannot read %1</source>
         <translation>Не удалось прочитать %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5172"/>
+        <location filename="../src/AppContext.cpp" line="5221"/>
         <source>Not a Unisic settings file</source>
         <translation>Это не файл настроек Unisic</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5217"/>
+        <location filename="../src/AppContext.cpp" line="5266"/>
         <source>Settings imported. The external action is off: check its command, then switch it on</source>
         <translation>Настройки импортированы. Внешнее действие выключено: проверьте его команду и включите</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5227"/>
-        <location filename="../src/AppContext.cpp" line="5747"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="3885"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3962"/>
+        <location filename="../src/AppContext.cpp" line="5276"/>
+        <location filename="../src/AppContext.cpp" line="5796"/>
         <source>Capture full screen</source>
         <translation>Снимок всего экрана</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5228"/>
-        <location filename="../src/AppContext.cpp" line="5746"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="3884"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3961"/>
+        <location filename="../src/AppContext.cpp" line="5277"/>
+        <location filename="../src/AppContext.cpp" line="5795"/>
         <source>Capture region</source>
         <translation>Снимок области</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5229"/>
-        <location filename="../src/AppContext.cpp" line="5750"/>
+        <location filename="../src/AppContext.cpp" line="5278"/>
+        <location filename="../src/AppContext.cpp" line="5799"/>
         <source>Capture scrolling region</source>
         <translation>Снимок прокручиваемой области</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5230"/>
+        <location filename="../src/AppContext.cpp" line="5279"/>
         <source>Capture active window</source>
         <translation>Снимок активного окна</translation>
     </message>
@@ -1575,17 +1580,17 @@
         <translation type="vanished">Запись активного окна (старт/стоп)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5278"/>
+        <location filename="../src/AppContext.cpp" line="5327"/>
         <source>This desktop can&apos;t be set up automatically - use the commands below.</source>
         <translation>Этот рабочий стол нельзя настроить автоматически - используйте команды ниже.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5283"/>
+        <location filename="../src/AppContext.cpp" line="5332"/>
         <source>Could not add shortcuts: %1</source>
         <translation>Не удалось добавить сочетания клавиш: %1</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/AppContext.cpp" line="5287"/>
+        <location filename="../src/AppContext.cpp" line="5336"/>
         <source>Added %n shortcut(s) to %1</source>
         <translation>
             <numerusform>Добавлено %n сочетание для %1</numerusform>
@@ -1594,64 +1599,64 @@
         </translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5291"/>
+        <location filename="../src/AppContext.cpp" line="5340"/>
         <source>(skipped, no mappable key: %1)</source>
         <translation>(пропущено, нет подходящей клавиши: %1)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5298"/>
+        <location filename="../src/AppContext.cpp" line="5347"/>
         <source>%1 already uses these keys - change them in Hotkeys: %2</source>
         <translation>%1 уже использует эти клавиши - измените их в разделе «Горячие клавиши»: %2</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5309"/>
+        <location filename="../src/AppContext.cpp" line="5358"/>
         <source>Could not remove shortcuts: %1</source>
         <translation>Не удалось удалить сочетания клавиш: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5312"/>
+        <location filename="../src/AppContext.cpp" line="5361"/>
         <source>Removed Unisic shortcuts from %1</source>
         <translation>Сочетания клавиш Unisic удалены из %1</translation>
     </message>
     <message>
-        <location filename="../src/diag/SmokeTests.cpp" line="5217"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="5295"/>
         <source>Dev: desktop shortcuts: %1</source>
         <translation>Dev: сочетания клавиш рабочего стола: %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5516"/>
-        <location filename="../src/AppContext.cpp" line="5748"/>
+        <location filename="../src/AppContext.cpp" line="5565"/>
+        <location filename="../src/AppContext.cpp" line="5797"/>
         <source>Capture screen under cursor</source>
         <translation>Снимок экрана под курсором</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5518"/>
-        <location filename="../src/AppContext.cpp" line="5751"/>
+        <location filename="../src/AppContext.cpp" line="5567"/>
+        <location filename="../src/AppContext.cpp" line="5800"/>
         <source>Re-capture last region</source>
         <translation>Повторить снимок последней области</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5231"/>
+        <location filename="../src/AppContext.cpp" line="5280"/>
         <source>Record GIF (start/stop)</source>
         <translation>Запись GIF (старт/стоп)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5232"/>
+        <location filename="../src/AppContext.cpp" line="5281"/>
         <source>Record video (start/stop)</source>
         <translation>Запись видео (старт/стоп)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5233"/>
+        <location filename="../src/AppContext.cpp" line="5282"/>
         <source>OCR region (copy text)</source>
         <translation>OCR области (копировать текст)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5509"/>
+        <location filename="../src/AppContext.cpp" line="5558"/>
         <source>Open quick task chooser</source>
         <translation>Открыть быстрый выбор задачи</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5235"/>
+        <location filename="../src/AppContext.cpp" line="5284"/>
         <source>Start/save instant replay</source>
         <translation>Запустить/сохранить мгновенный повтор</translation>
     </message>
@@ -1660,166 +1665,166 @@
         <translation type="vanished">Отсутствует в этой установке. Пакет «wl-clipboard» необходим для надёжного копирования в буфер обмена Wayland.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="1880"/>
+        <location filename="../src/AppContext.cpp" line="1895"/>
         <source>Missing from this install. The Tesseract &quot;osd&quot; pack is required for OCR script detection.</source>
         <translation>Отсутствует в этой установке. Пакет Tesseract «osd» необходим для определения письменности с помощью OCR.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5485"/>
-        <location filename="../src/AppContext.cpp" line="5605"/>
+        <location filename="../src/AppContext.cpp" line="5534"/>
+        <location filename="../src/AppContext.cpp" line="5654"/>
         <source>Stop recording (emergency)</source>
         <translation>Остановить запись (аварийно)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5491"/>
+        <location filename="../src/AppContext.cpp" line="5540"/>
         <source>Ctrl+Esc emergency stop unavailable: the key is taken by the system (System Settings → Shortcuts to free it)</source>
         <translation>Аварийная остановка по Ctrl+Esc недоступна: клавиша занята системой (освободите её в «Параметры системы → Комбинации клавиш»)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5497"/>
+        <location filename="../src/AppContext.cpp" line="5546"/>
         <source>Developer smoke test</source>
         <translation>Проверочный тест разработчика</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5628"/>
+        <location filename="../src/AppContext.cpp" line="5677"/>
         <source>Hotkey taken by another app: %1. Pick a different key in Settings → Hotkeys.</source>
         <translation>Горячая клавиша занята другим приложением: %1. Выберите другую клавишу в «Настройки → Горячие клавиши».</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5658"/>
+        <location filename="../src/AppContext.cpp" line="5707"/>
         <source>Could not bind %1; the key is taken by another shortcut</source>
         <translation>Не удалось назначить %1; клавиша занята другим сочетанием</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5699"/>
+        <location filename="../src/AppContext.cpp" line="5748"/>
         <source>Some hotkeys could not be bound (keys taken); showing the actual state</source>
         <translation>Некоторые горячие клавиши назначить не удалось (клавиши заняты); показано фактическое состояние</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5749"/>
+        <location filename="../src/AppContext.cpp" line="5798"/>
         <source>Capture window</source>
         <translation>Снимок окна</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5752"/>
+        <location filename="../src/AppContext.cpp" line="5801"/>
         <source>Measure</source>
         <translation>Измерить</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5753"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="3884"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3961"/>
+        <location filename="../src/AppContext.cpp" line="5802"/>
         <source>Select text…</source>
         <translation>Выбрать текст…</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5754"/>
+        <location filename="../src/AppContext.cpp" line="5803"/>
         <source>Record video (region)</source>
         <translation>Запись видео (область)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5755"/>
+        <location filename="../src/AppContext.cpp" line="5804"/>
         <source>Record video (full screen)</source>
         <translation>Запись видео (весь экран)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5756"/>
+        <location filename="../src/AppContext.cpp" line="5805"/>
         <source>Record video (window)</source>
         <translation>Запись видео (окно)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5757"/>
+        <location filename="../src/AppContext.cpp" line="5806"/>
         <source>Record GIF (region)</source>
         <translation>Запись GIF (область)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5758"/>
+        <location filename="../src/AppContext.cpp" line="5807"/>
         <source>Record GIF (full screen)</source>
         <translation>Запись GIF (весь экран)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5759"/>
+        <location filename="../src/AppContext.cpp" line="5808"/>
         <source>Start instant replay</source>
         <translation>Запустить мгновенный повтор</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5760"/>
+        <location filename="../src/AppContext.cpp" line="5809"/>
         <source>Save instant replay</source>
         <translation>Сохранить мгновенный повтор</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5761"/>
+        <location filename="../src/AppContext.cpp" line="5810"/>
         <source>Stop recording</source>
         <translation>Остановить запись</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5830"/>
+        <location filename="../src/AppContext.cpp" line="5879"/>
         <source>Restart to update to Unisic %1</source>
         <translation>Перезапустить для обновления до Unisic %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5836"/>
+        <location filename="../src/AppContext.cpp" line="5885"/>
         <source>Install update to Unisic %1</source>
         <translation>Установить обновление до Unisic %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5840"/>
+        <location filename="../src/AppContext.cpp" line="5889"/>
         <source>Update available - Unisic %1</source>
         <translation>Доступно обновление - Unisic %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="5763"/>
-        <location filename="../src/diag/SmokeTests.cpp" line="3886"/>
+        <location filename="../src/diag/SmokeTests.cpp" line="3963"/>
+        <location filename="../src/AppContext.cpp" line="5812"/>
         <source>Open Unisic</source>
         <translation>Открыть Unisic</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="6067"/>
+        <location filename="../src/AppContext.cpp" line="6116"/>
         <source>Images (*.png *.svg *.svgz *.xpm *.ico *.jpg *.jpeg *.webp)</source>
         <translation>Изображения (*.png *.svg *.svgz *.xpm *.ico *.jpg *.jpeg *.webp)</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="6066"/>
+        <location filename="../src/AppContext.cpp" line="6115"/>
         <source>Add a tray icon</source>
         <translation>Добавить значок в трей</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="6072"/>
-        <location filename="../src/AppContext.cpp" line="6111"/>
+        <location filename="../src/AppContext.cpp" line="6121"/>
+        <location filename="../src/AppContext.cpp" line="6160"/>
         <source>Could not load that image as an icon</source>
         <translation>Не удалось загрузить это изображение как значок</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="6092"/>
+        <location filename="../src/AppContext.cpp" line="6141"/>
         <source>Could not copy the icon into %1</source>
         <translation>Не удалось скопировать значок в %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="6098"/>
+        <location filename="../src/AppContext.cpp" line="6147"/>
         <source>Icon added to your tray icons</source>
         <translation>Значок добавлен к вашим значкам в трее</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="6269"/>
+        <location filename="../src/AppContext.cpp" line="6318"/>
         <source>Unisic starts hidden in the tray so its capture shortcuts work right after you log in.</source>
         <translation>Unisic запускается скрытым в трее, чтобы его горячие клавиши работали сразу после входа в систему.</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="6277"/>
+        <location filename="../src/AppContext.cpp" line="6326"/>
         <source>The desktop refused the autostart request</source>
         <translation>Рабочий стол отклонил запрос на автозапуск</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="6285"/>
+        <location filename="../src/AppContext.cpp" line="6334"/>
         <source>Autostart was not granted</source>
         <translation>Автозапуск не разрешён</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="6301"/>
+        <location filename="../src/AppContext.cpp" line="6350"/>
         <source>Could not disable autostart: cannot remove %1</source>
         <translation>Не удалось отключить автозапуск: не получается удалить %1</translation>
     </message>
     <message>
-        <location filename="../src/AppContext.cpp" line="6306"/>
+        <location filename="../src/AppContext.cpp" line="6355"/>
         <source>Could not enable autostart: cannot write %1</source>
         <translation>Не удалось включить автозапуск: не получается записать %1</translation>
     </message>
@@ -2023,12 +2028,11 @@
         <translation>Импортировано «%1»</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="208"/>
         <source>Modular uploaders: custom HTTP APIs plus FTP/SFTP via curl. After every upload the link is copied to your clipboard.</source>
-        <translation>Модульные загрузчики: свои HTTP API плюс FTP/SFTP через curl. После каждой отправки ссылка копируется в буфер обмена.</translation>
+        <translation type="vanished">Модульные загрузчики: свои HTTP API плюс FTP/SFTP через curl. После каждой отправки ссылка копируется в буфер обмена.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="356"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="362"/>
         <source>Use</source>
         <translation>Выбрать</translation>
     </message>
@@ -2053,22 +2057,22 @@
         <translation>Пока нет ни одного адреса отправки. Добавьте его, чтобы отправлять снимки прямо на свой сервер или на публичный хостинг.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="338"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="343"/>
         <source>Needs a Client-ID</source>
         <translation>Нужен Client-ID</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="357"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="363"/>
         <source>Use %1 for uploads</source>
         <translation>Использовать %1 для отправки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="369"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="375"/>
         <source>Edit %1</source>
         <translation>Изменить %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="377"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="383"/>
         <source>Delete %1</source>
         <translation>Удалить %1</translation>
     </message>
@@ -2078,67 +2082,136 @@
         <translation>Добавить свой сервер</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="339"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="208"/>
+        <source>Modular uploaders: custom HTTP APIs, FTP/SFTP via curl and S3-compatible storage. After every upload the link is copied to your clipboard.</source>
+        <translation>Модульные назначения загрузки: собственные HTTP API, FTP/SFTP через curl и хранилища, совместимые с S3. После каждой загрузки ссылка копируется в буфер обмена.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="344"/>
         <source>Needs a user key</source>
         <translation>Нужен ключ пользователя</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="643"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="345"/>
+        <source>Needs setup</source>
+        <translation>Нужна настройка</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="673"/>
         <source>Edit server</source>
         <translation>Изменить сервер</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="643"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="673"/>
         <source>New server</source>
         <translation>Новый сервер</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="707"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="737"/>
         <source>Testing the upload…</source>
         <translation>Проверка отправки…</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="710"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="740"/>
         <source>Upload worked. The server answered with:</source>
         <translation>Отправка удалась. Ответ сервера:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="711"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="741"/>
         <source>Upload worked, but no link came back. Set a public URL base so the copied link points at the uploaded file.</source>
         <translation>Отправка удалась, но ссылка не вернулась. Задайте публичный базовый URL, чтобы скопированная ссылка вела на отправленный файл.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="712"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="742"/>
         <source>Upload failed</source>
         <translation>Отправка не удалась</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="748"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="778"/>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="753"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="783"/>
         <source>e.g. my-server</source>
         <translation>например, my-server</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="757"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="787"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="758"/>
-        <source>http for web APIs and public hosts, curl for FTP/SFTP.</source>
-        <translation>http для веб-API и публичных хостингов, curl для FTP/SFTP.</translation>
+        <location filename="../qml/pages/DestinationsPage.qml" line="816"/>
+        <source>Bucket</source>
+        <translation>Бакет</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="766"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="819"/>
+        <source>e.g. my-screenshots</source>
+        <translation>например, my-screenshots</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="824"/>
+        <source>Region</source>
+        <translation>Регион</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="825"/>
+        <source>Empty means us-east-1. Cloudflare R2 uses auto.</source>
+        <translation>Пусто означает us-east-1. Для Cloudflare R2 укажите auto.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="828"/>
+        <source>e.g. eu-central-1</source>
+        <translation>например, eu-central-1</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="833"/>
+        <source>Access key ID</source>
+        <translation>Идентификатор ключа доступа</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="836"/>
+        <source>e.g. AKIAIOSFODNN7EXAMPLE</source>
+        <translation>например, AKIAIOSFODNN7EXAMPLE</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="841"/>
+        <source>Secret access key</source>
+        <translation>Секретный ключ доступа</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="842"/>
+        <source>Give this key permission to upload to the bucket and nothing else. It is stored in destinations.json, readable only by you.</source>
+        <translation>Дайте этому ключу право только на загрузку в бакет и ничего больше. Он хранится в destinations.json, доступном для чтения только вам.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="850"/>
+        <source>Folder (optional)</source>
+        <translation>Папка (необязательно)</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="851"/>
+        <source>Where in the bucket uploads go, for example screenshots/2026. Empty puts them at the top.</source>
+        <translation>Куда в бакете попадают загрузки, например screenshots/2026. Пусто означает корень бакета.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="854"/>
+        <source>e.g. screenshots</source>
+        <translation>например, screenshots</translation>
+    </message>
+    <message>
+        <source>http for web APIs and public hosts, curl for FTP/SFTP.</source>
+        <translation type="vanished">http для веб-API и публичных хостингов, curl для FTP/SFTP.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="796"/>
         <source>Request URL</source>
         <translation>URL запроса</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="775"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="811"/>
         <source>https://host/api/upload  or  https://host/put/%file%</source>
         <translation>https://host/api/upload  или  https://host/put/%file%</translation>
     </message>
@@ -2147,22 +2220,22 @@
         <translation type="vanished">sftp://host/path/  или  ftp://host/path/</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="783"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="862"/>
         <source>Multipart form-data (upload the file)</source>
         <translation>Multipart form-data (отправить файл)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="783"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="862"/>
         <source>Custom JSON body</source>
         <translation>Своё тело JSON</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="798"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="877"/>
         <source>$base64$ is the file itself, $filename$ its name, $mime$ its type.</source>
         <translation>$base64$ - сам файл, $filename$ его имя, $mime$ его тип.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="802"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="881"/>
         <source>e.g. {&quot;image&quot;:&quot;$base64$&quot;,&quot;name&quot;:&quot;$filename$&quot;}</source>
         <translation>напр. {&quot;image&quot;:&quot;$base64$&quot;,&quot;name&quot;:&quot;$filename$&quot;}</translation>
     </message>
@@ -2171,7 +2244,7 @@
         <translation type="vanished">Ключ пользователя vgy.me (необязательно)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="819"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="898"/>
         <source>e.g. your-user-key</source>
         <translation>например, vash-klyuch</translation>
     </message>
@@ -2180,63 +2253,88 @@
         <translation type="vanished">Необязательный ключ пользователя с https://vgy.me/account/details#userkeys. Связывает загрузки с вашей учётной записью vgy.me (требуется, если анонимные загрузки отключены).</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="848"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="929"/>
         <source>Imgur Client-ID</source>
         <translation>Imgur Client-ID</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="858"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="939"/>
         <source>Unisic ships no Client-ID: it identifies the application, so a shared one would put every user on one daily cap. Register a free application at https://api.imgur.com/oauth2/addclient - pick “Anonymous usage without user authorisation” - and paste its Client-ID here. Uploads stay anonymous; they never appear in your Imgur gallery.</source>
         <translation>Unisic не поставляется с Client-ID: он определяет приложение, поэтому один общий означал бы единый суточный лимит для всех пользователей. Зарегистрируйте бесплатное приложение на https://api.imgur.com/oauth2/addclient - выберите «Anonymous usage without user authorisation» - и вставьте сюда его Client-ID. Отправки остаются анонимными; они никогда не появляются в вашей галерее Imgur.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="878"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="960"/>
         <source>user:password (curl -u)</source>
         <translation>пользователь:пароль (curl -u)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="884"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="967"/>
+        <source>The bucket&apos;s public address, such as a CDN or custom domain; the file&apos;s path in the bucket is added to it. Empty copies the bucket&apos;s own address, which opens only for a public bucket.</source>
+        <translation>Публичный адрес бакета, например CDN или собственный домен; к нему добавляется путь файла в бакете. Пусто: копируется собственный адрес бакета, который открывается только у публичного бакета.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="968"/>
         <source>Where the uploaded file is reachable from. With neither this nor a URL extractor, a curl upload succeeds but no link can be copied.</source>
         <translation>Адрес, по которому доступен загруженный файл. Без него и без извлечения ссылки загрузка curl удастся, но копировать будет нечего.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="966"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="1050"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="985"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="1069"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="479"/>
-        <location filename="../qml/pages/DestinationsPage.qml" line="528"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="503"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="554"/>
         <source>Headers are not valid JSON. Fix or clear the field</source>
         <translation>Заголовки не являются корректным JSON. Исправьте или очистите поле</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="507"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="531"/>
         <source>Extra form fields are not valid JSON. Fix or clear the field</source>
         <translation>Дополнительные поля формы не являются корректным JSON. Исправьте или очистите поле</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="732"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="762"/>
         <source>Upload test result</source>
         <translation>Результат проверки отправки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="768"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="788"/>
+        <source>http for web APIs and public hosts, curl for FTP/SFTP, s3 for Amazon S3 and S3-compatible storage (Cloudflare R2, MinIO, Backblaze B2, Wasabi).</source>
+        <translation>http для веб-API и публичных хостингов, curl для FTP/SFTP, s3 для Amazon S3 и S3-совместимых хранилищ (Cloudflare R2, MinIO, Backblaze B2, Wasabi).</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="796"/>
+        <source>Endpoint (optional)</source>
+        <translation>Конечная точка (необязательно)</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="798"/>
+        <source>Leave empty for Amazon S3. For any other S3-compatible store, its S3 API address.</source>
+        <translation>Оставьте пустым для Amazon S3. Для любого другого S3-совместимого хранилища укажите адрес его S3 API.</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="800"/>
         <source>%file% is replaced by the file name. Without it the name is added at the end, which is what FTP and SFTP folders want.</source>
         <translation>%file% заменяется именем файла. Без него имя добавляется в конец, как и нужно папкам FTP и SFTP.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="769"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="801"/>
         <source>%file% is replaced by the file name. Without it the address is sent exactly as typed.</source>
         <translation>%file% заменяется именем файла. Без него адрес отправляется точно так, как введён.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="774"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="808"/>
+        <source>https://&lt;account&gt;.r2.cloudflarestorage.com  or  http://localhost:9000</source>
+        <translation>https://&lt;account&gt;.r2.cloudflarestorage.com  или  http://localhost:9000</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/DestinationsPage.qml" line="810"/>
         <source>sftp://host/path/  or  https://host/upload/%file%</source>
         <translation>sftp://host/path/  или  https://host/upload/%file%</translation>
     </message>
@@ -2245,22 +2343,22 @@
         <translation type="vanished">https://…</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="780"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="859"/>
         <source>Request body</source>
         <translation>Тело запроса</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="789"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="868"/>
         <source>File form field name</source>
         <translation>Имя поля формы для файла</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="792"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="871"/>
         <source>file</source>
         <translation>file</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="797"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="876"/>
         <source>JSON body</source>
         <translation>Тело JSON</translation>
     </message>
@@ -2269,62 +2367,62 @@
         <translation type="vanished">Подстановки: $base64$, $filename$, $mime$</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="807"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="886"/>
         <source>Extra form fields (JSON)</source>
         <translation>Дополнительные поля формы (JSON)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="810"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="889"/>
         <source>e.g. {&quot;reqtype&quot;:&quot;fileupload&quot;}</source>
         <translation>например, {&quot;reqtype&quot;:&quot;fileupload&quot;}</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="816"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="895"/>
         <source>vgy.me user key</source>
         <translation>Ключ пользователя vgy.me</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="826"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="905"/>
         <source>User key from https://vgy.me/account/details#userkeys. Required because vgy.me does not allow anonymous uploads.</source>
         <translation>Ключ пользователя с https://vgy.me/account/details#userkeys. Обязателен, так как vgy.me не разрешает анонимные загрузки.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="831"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="912"/>
         <source>URL extractor</source>
         <translation>Извлечение URL</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="833"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="914"/>
         <source>Reads the link out of what the server answers. Leave it empty for a plain file server that answers nothing, and fill in the public URL base below instead.</source>
         <translation>Извлекает ссылку из ответа сервера. Оставьте пустым для обычного файлового сервера, который ничего не отвечает, и заполните базовый публичный адрес ниже.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="838"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="919"/>
         <source>$text$, $json:files[0].url$ or $regex:…$</source>
         <translation>$text$, $json:files[0].url$ или $regex:…$</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="851"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="932"/>
         <source>e.g. 1a2b3c4d5e6f7g8</source>
         <translation>например, 1a2b3c4d5e6f7g8</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="867"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="949"/>
         <source>Headers (JSON)</source>
         <translation>Заголовки (JSON)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="870"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="952"/>
         <source>e.g. {&quot;Authorization&quot;:&quot;Bearer x&quot;}</source>
         <translation>например, {&quot;Authorization&quot;:&quot;Bearer x&quot;}</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="875"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="957"/>
         <source>Credentials</source>
         <translation>Учётные данные</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="883"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="965"/>
         <source>Public URL base (optional)</source>
         <translation>Публичный базовый URL (необязательно)</translation>
     </message>
@@ -2333,27 +2431,27 @@
         <translation type="vanished">Откуда доступен отправленный файл. Без него отправка через curl проходит, но ссылку скопировать не из чего.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="887"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="971"/>
         <source>https://host/dir/</source>
         <translation>https://host/dir/</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="929"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="1013"/>
         <source>A test upload really writes unisic-test.png to this server. Unisic cannot remove it again.</source>
         <translation>Тестовая отправка действительно записывает unisic-test.png на этот сервер. Unisic не сможет удалить его обратно.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="943"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="1027"/>
         <source>Testing…</source>
         <translation>Проверка…</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="943"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="1027"/>
         <source>Test upload</source>
         <translation>Проверить отправку</translation>
     </message>
     <message>
-        <location filename="../qml/pages/DestinationsPage.qml" line="1003"/>
+        <location filename="../qml/pages/DestinationsPage.qml" line="1087"/>
         <source>A server with this name already exists</source>
         <translation>Сервер с таким названием уже есть</translation>
     </message>
@@ -4460,7 +4558,7 @@ Starred (favorite) captures in the selection are kept - un-star them first.</sou
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1101"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3976"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3977"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
@@ -4587,7 +4685,7 @@ Starred (favorite) captures in the selection are kept - un-star them first.</sou
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1443"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3928"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3929"/>
         <source>Capture delay</source>
         <translation>Задержка снимка</translation>
     </message>
@@ -4613,7 +4711,7 @@ Starred (favorite) captures in the selection are kept - un-star them first.</sou
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="2737"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3920"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3921"/>
         <source>Capture sound</source>
         <translation>Звук снимка</translation>
     </message>
@@ -4928,7 +5026,7 @@ Off or unsupported: a native desktop notification is shown instead - the capture
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="2789"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3921"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3922"/>
         <source>Recording sound</source>
         <translation>Звук записи</translation>
     </message>
@@ -5310,62 +5408,62 @@ Applies to the next capture.</source>
         <translation>Проверка горячих клавиш X11</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3950"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3951"/>
         <source>Measure</source>
         <translation>Измерить</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3956"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3957"/>
         <source>Trim cut (exact + lossless)</source>
         <translation>Обрезка (точная и без потерь)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3957"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3958"/>
         <source>Recording pause excise</source>
         <translation>Вырезание пауз в записи</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3964"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3965"/>
         <source>Magnifier</source>
         <translation>Лупа</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3965"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3966"/>
         <source>Eyedropper</source>
         <translation>Пипетка</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3966"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3967"/>
         <source>Pixel loupe</source>
         <translation>Пиксельная лупа</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3972"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3973"/>
         <source>Auto-redact pattern</source>
         <translation>Шаблон автозачернения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3973"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3974"/>
         <source>Style presets</source>
         <translation>Наборы стилей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3974"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3975"/>
         <source>Cursor overlay</source>
         <translation>Наложение курсора</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3975"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3976"/>
         <source>OCR auto language</source>
         <translation>Автоопределение языка OCR</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3977"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3978"/>
         <source>Update check</source>
         <translation>Проверка обновлений</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3978"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3979"/>
         <source>Simulate update</source>
         <translation>Имитация обновления</translation>
     </message>
@@ -5496,7 +5594,7 @@ Applies to the next capture.</source>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1480"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3967"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3968"/>
         <source>Capture on release</source>
         <translation>Снимок при отпускании</translation>
     </message>
@@ -5667,7 +5765,7 @@ Applies to the next capture.</source>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1369"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3936"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3937"/>
         <source>Copy diagnostics</source>
         <translation>Копировать диагностику</translation>
     </message>
@@ -5846,7 +5944,7 @@ Applies to the next capture.</source>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1584"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3944"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3945"/>
         <source>External action</source>
         <translation>Внешнее действие</translation>
     </message>
@@ -5898,12 +5996,12 @@ Applies to the next capture.</source>
 Применяется к следующему снимку.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3915"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3916"/>
         <source>Template variables</source>
         <translation>Переменные шаблона</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3945"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3946"/>
         <source>External action timeout</source>
         <translation>Тайм-аут внешнего действия</translation>
     </message>
@@ -6502,7 +6600,7 @@ Applies to the next capture.</source>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="2344"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3917"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3918"/>
         <source>Image conversion</source>
         <translation>Конвертация изображений</translation>
     </message>
@@ -6588,7 +6686,7 @@ Applies to the next capture.</source>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="2462"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3931"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3932"/>
         <source>Watermark preview</source>
         <translation>Предпросмотр водяного знака</translation>
     </message>
@@ -6794,7 +6892,7 @@ Applies to the next capture.</source>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="3489"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3954"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3955"/>
         <source>Instant replay</source>
         <translation>Мгновенный повтор</translation>
     </message>
@@ -7050,83 +7148,83 @@ Applies to the next capture.</source>
         <translation type="vanished">Переменные загрузки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3916"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3917"/>
         <source>Still GIF</source>
         <translation>Статичный GIF</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3918"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3919"/>
         <source>Notification drag payload</source>
         <translation>Перетаскивание из уведомления</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3927"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3928"/>
         <source>Paste clipboard</source>
         <translation>Вставить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3929"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3930"/>
         <source>Copy as</source>
         <translation>Копировать как</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="2408"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3930"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3931"/>
         <source>Watermark</source>
         <translation>Водяной знак</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3932"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3933"/>
         <source>Callout</source>
         <translation>Выноска</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3933"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3934"/>
         <source>Shift snap</source>
         <translation>Привязка по Shift</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3935"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3936"/>
         <source>QR preview</source>
         <translation>Предпросмотр QR</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3971"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3972"/>
         <source>OCR highlight + redact</source>
         <translation>Подсветка и зачернение OCR</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3980"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3981"/>
         <source>Installer update (dry-run)</source>
         <translation>Обновление установщика (вхолостую)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3981"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3982"/>
         <source>Filename + save routing</source>
         <translation>Имя файла и маршрут сохранения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3982"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3983"/>
         <source>Save-as dialog</source>
         <translation>Диалог «Сохранить как»</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3983"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3984"/>
         <source>Active window geometry</source>
         <translation>Геометрия активного окна</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3984"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3985"/>
         <source>Record countdown</source>
         <translation>Обратный отсчёт записи</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3985"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3986"/>
         <source>Full-screen countdown</source>
         <translation>Обратный отсчёт для всего экрана</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3986"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3987"/>
         <source>Toggle autostart</source>
         <translation>Переключить автозапуск</translation>
     </message>
@@ -7252,7 +7350,7 @@ Applies to the next capture.</source>
     </message>
     <message>
         <location filename="../qml/pages/SettingsPage.qml" line="1880"/>
-        <location filename="../qml/pages/SettingsPage.qml" line="3959"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3960"/>
         <source>Separate audio tracks</source>
         <translation>Раздельные звуковые дорожки</translation>
     </message>
@@ -7538,157 +7636,162 @@ Applies to the next capture.</source>
         <translation>Поддержка vgy.me</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3919"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3915"/>
+        <source>S3 destination</source>
+        <translation>назначение S3</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="3920"/>
         <source>OCR region</source>
         <translation>OCR области</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3922"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3923"/>
         <source>Record start sound</source>
         <translation>Звук начала записи</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3923"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3924"/>
         <source>Trash sound</source>
         <translation>Звук корзины</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3924"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3925"/>
         <source>Text render</source>
         <translation>Отрисовка текста</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3925"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3926"/>
         <source>Keystroke badge</source>
         <translation>Плашка нажатий клавиш</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3926"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3927"/>
         <source>Custom theme</source>
         <translation>Своя тема</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3934"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3935"/>
         <source>Pen line click</source>
         <translation>Линия пером по щелчку</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3937"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3938"/>
         <source>Diagnostic log</source>
         <translation>Диагностический журнал</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3938"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3939"/>
         <source>Log viewer</source>
         <translation>Просмотр журнала</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3939"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3940"/>
         <source>Crash report</source>
         <translation>Отчёт о сбое</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3940"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3941"/>
         <source>Dependency report</source>
         <translation>Отчёт о зависимостях</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3941"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3942"/>
         <source>System check dialog</source>
         <translation>Диалог проверки системы</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3942"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3943"/>
         <source>Do not disturb</source>
         <translation>Не беспокоить</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3943"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3944"/>
         <source>Hide while capturing</source>
         <translation>Скрывать во время снимка</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3946"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3947"/>
         <source>Task preset</source>
         <translation>Набор действий</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3947"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3948"/>
         <source>CLI output</source>
         <translation>Вывод CLI</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3948"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3949"/>
         <source>Scrolling stitch</source>
         <translation>Объединение при прокрутке</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3949"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3950"/>
         <source>Scrolling hand-off</source>
         <translation>Передача прокрутки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3951"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3952"/>
         <source>Hardware encoder</source>
         <translation>Аппаратный кодировщик</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3952"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3953"/>
         <source>Freeze recorder (watchdog)</source>
         <translation>Зависание записи (сторожевой таймер)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3953"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3954"/>
         <source>Per-app audio</source>
         <translation>Звук отдельного приложения</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3955"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3956"/>
         <source>Trim recording</source>
         <translation>Обрезать запись</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3958"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3959"/>
         <source>Video quality scale</source>
         <translation>Шкала качества видео</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3960"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3961"/>
         <source>Audio input devices</source>
         <translation>Устройства ввода звука</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3961"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3962"/>
         <source>Trim audio edit</source>
         <translation>Правка звука в обрезке</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3962"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3963"/>
         <source>Screenshot cursor</source>
         <translation>Курсор на снимке</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3963"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3964"/>
         <source>Shape edit</source>
         <translation>Правка фигуры</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3968"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3969"/>
         <source>Overlay mode badge</source>
         <translation>Значок режима оверлея</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3969"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3970"/>
         <source>Overlay preview</source>
         <translation>Предпросмотр слоя</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3970"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3971"/>
         <source>OCR boxes</source>
         <translation>Рамки OCR</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="3979"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="3980"/>
         <source>Auto-restart gate</source>
         <translation>Защита от автоперезапуска</translation>
     </message>
@@ -9216,147 +9319,173 @@ Applies to the next capture.</source>
 <context>
     <name>UploadManager</name>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="522"/>
-        <location filename="../src/upload/UploadManager.cpp" line="531"/>
+        <location filename="../src/upload/UploadManager.cpp" line="527"/>
+        <location filename="../src/upload/UploadManager.cpp" line="536"/>
         <source>File name</source>
         <translation>Имя файла</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="523"/>
+        <location filename="../src/upload/UploadManager.cpp" line="528"/>
         <source>The name of the uploaded file. Without it the name is added at the end of the address, which is what FTP and SFTP folders want.</source>
         <translation>Имя загружаемого файла. Без него имя добавляется в конец адреса, что и нужно папкам FTP и SFTP.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="525"/>
+        <location filename="../src/upload/UploadManager.cpp" line="530"/>
         <source>The name of the uploaded file, put right into the address.</source>
         <translation>Имя загружаемого файла, подставленное прямо в адрес.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="529"/>
+        <location filename="../src/upload/UploadManager.cpp" line="534"/>
         <source>File as base64</source>
         <translation>Файл в base64</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="530"/>
+        <location filename="../src/upload/UploadManager.cpp" line="535"/>
         <source>The whole file, base64-encoded, inline in the body.</source>
         <translation>Весь файл в кодировке base64, прямо в теле запроса.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="532"/>
+        <location filename="../src/upload/UploadManager.cpp" line="537"/>
         <source>The name of the uploaded file.</source>
         <translation>Имя загружаемого файла.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="533"/>
+        <location filename="../src/upload/UploadManager.cpp" line="538"/>
         <source>File type</source>
         <translation>Тип файла</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="534"/>
+        <location filename="../src/upload/UploadManager.cpp" line="539"/>
         <source>The file&apos;s MIME type, for example image/png.</source>
         <translation>MIME-тип файла, например image/png.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="539"/>
+        <location filename="../src/upload/UploadManager.cpp" line="544"/>
         <source>Whole answer</source>
         <translation>Весь ответ</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="540"/>
+        <location filename="../src/upload/UploadManager.cpp" line="545"/>
         <source>Everything the server answered, used as the link.</source>
         <translation>Всё, что ответил сервер, использованное как ссылка.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="541"/>
+        <location filename="../src/upload/UploadManager.cpp" line="546"/>
         <source>Value from JSON</source>
         <translation>Значение из JSON</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="542"/>
+        <location filename="../src/upload/UploadManager.cpp" line="547"/>
         <source>A field of a JSON answer, by path: $json:data.link$ or $json:files[0].url$.</source>
         <translation>Поле JSON-ответа по пути: $json:data.link$ или $json:files[0].url$.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="545"/>
+        <location filename="../src/upload/UploadManager.cpp" line="550"/>
         <source>Match by pattern</source>
         <translation>Совпадение по шаблону</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="546"/>
+        <location filename="../src/upload/UploadManager.cpp" line="551"/>
         <source>The first group a regular expression matches in the answer.</source>
         <translation>Первая группа, найденная регулярным выражением в ответе.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="562"/>
+        <location filename="../src/upload/UploadManager.cpp" line="567"/>
         <source>Cannot open %1</source>
         <translation>Не удаётся открыть %1</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="568"/>
+        <location filename="../src/upload/UploadManager.cpp" line="573"/>
         <source>Not a valid .sxcu file: %1</source>
         <translation>Это не корректный файл .sxcu: %1</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="576"/>
+        <location filename="../src/upload/UploadManager.cpp" line="581"/>
         <source>The .sxcu file has no RequestURL</source>
         <translation>В файле .sxcu нет RequestURL</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="586"/>
+        <location filename="../src/upload/UploadManager.cpp" line="591"/>
         <source>This .sxcu uses ShareX RegexList response parsing, which Unisic can&apos;t import yet. Edit the destination&apos;s URL extractor to a $json:…$ or $text$ token after importing.</source>
         <translation>Этот .sxcu использует разбор ответа через RegexList из ShareX, который Unisic пока не умеет импортировать. После импорта поправьте извлечение URL у сервера на подстановку $json:…$ или $text$.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="623"/>
-        <location filename="../src/upload/UploadManager.cpp" line="893"/>
-        <location filename="../src/upload/UploadManager.cpp" line="949"/>
+        <location filename="../src/upload/UploadManager.cpp" line="628"/>
+        <location filename="../src/upload/UploadManager.cpp" line="916"/>
+        <location filename="../src/upload/UploadManager.cpp" line="972"/>
+        <location filename="../src/upload/UploadManager.cpp" line="1311"/>
         <source>Cannot read %1</source>
         <translation>Не удалось прочитать %1</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="656"/>
+        <location filename="../src/upload/UploadManager.cpp" line="661"/>
         <source>No upload server configured</source>
         <translation>Сервер отправки не настроен</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="663"/>
+        <location filename="../src/upload/UploadManager.cpp" line="668"/>
         <source>Imgur needs your own Client-ID. Register a free application at https://api.imgur.com/oauth2/addclient (&quot;Anonymous usage without user authorisation&quot;), then paste the Client-ID into Destinations → %1 → Edit.</source>
         <translation>Imgur нужен ваш собственный Client-ID. Зарегистрируйте бесплатное приложение на https://api.imgur.com/oauth2/addclient («Anonymous usage without user authorisation»), затем вставьте Client-ID в «Серверы → %1 → Изменить».</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="670"/>
+        <location filename="../src/upload/UploadManager.cpp" line="675"/>
         <source>vgy.me requires a user key. Log in to https://vgy.me/account/details#userkeys to find your key, then paste it into Destinations → %1 → Edit.</source>
         <translation>Для vgy.me требуется ключ пользователя. Войдите на https://vgy.me/account/details#userkeys, чтобы найти ключ, затем вставьте его в «Серверы → %1 → Изменить».</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="718"/>
+        <location filename="../src/upload/UploadManager.cpp" line="684"/>
+        <source>%1 Fix it in Servers → %2 → Edit.</source>
+        <translation>%1 Исправьте это в «Серверы → %2 → Изменить».</translation>
+    </message>
+    <message>
+        <location filename="../src/upload/UploadManager.cpp" line="741"/>
         <source>Enter a request URL first.</source>
         <translation>Сначала введите URL запроса.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="724"/>
+        <location filename="../src/upload/UploadManager.cpp" line="747"/>
         <source>Imgur needs your own Client-ID. Paste it into the field above, then test again.</source>
         <translation>Imgur нужен ваш собственный Client-ID. Вставьте его в поле выше, затем проверьте снова.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="729"/>
+        <location filename="../src/upload/UploadManager.cpp" line="752"/>
         <source>vgy.me requires a user key. Paste it into the field above, then test again.</source>
         <translation>Для vgy.me требуется ключ пользователя. Вставьте его в поле выше, затем проверьте снова.</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="1085"/>
+        <location filename="../src/upload/UploadManager.cpp" line="1108"/>
         <source>Cannot create temp file</source>
         <translation>Не удаётся создать временный файл</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="1092"/>
+        <location filename="../src/upload/UploadManager.cpp" line="1115"/>
         <source>Cannot write temp file</source>
         <translation>Не удаётся записать временный файл</translation>
     </message>
     <message>
-        <location filename="../src/upload/UploadManager.cpp" line="1187"/>
+        <location filename="../src/upload/UploadManager.cpp" line="1210"/>
         <source>Could not run curl. Is it installed? (needed for FTP/SFTP uploads)</source>
         <translation>Не удалось запустить curl. Он установлен? (нужен для отправки по FTP/SFTP)</translation>
+    </message>
+    <message>
+        <location filename="../src/upload/UploadManager.cpp" line="1231"/>
+        <source>This S3 server has no bucket.</source>
+        <translation>У этого сервера S3 не указан бакет.</translation>
+    </message>
+    <message>
+        <location filename="../src/upload/UploadManager.cpp" line="1233"/>
+        <source>A bucket name cannot contain a slash. Put folders in the Folder field instead.</source>
+        <translation>Имя бакета не может содержать косую черту. Укажите папки в поле «Папка».</translation>
+    </message>
+    <message>
+        <location filename="../src/upload/UploadManager.cpp" line="1236"/>
+        <source>This S3 server needs an access key ID and a secret access key.</source>
+        <translation>Этому серверу S3 нужны идентификатор ключа доступа и секретный ключ доступа.</translation>
+    </message>
+    <message>
+        <location filename="../src/upload/UploadManager.cpp" line="1238"/>
+        <source>The S3 endpoint is not a valid http or https address.</source>
+        <translation>Конечная точка S3 не является корректным адресом http или https.</translation>
     </message>
 </context>
 <context>

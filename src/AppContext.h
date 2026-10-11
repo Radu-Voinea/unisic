@@ -319,6 +319,7 @@ public:
     Q_INVOKABLE void devTestImgurSetup();
     Q_INVOKABLE void devTestVgyMe();
     Q_INVOKABLE void devTestCurlDestination();
+    Q_INVOKABLE void devTestS3Destination();
     Q_INVOKABLE void devTestTemplateVars();
     Q_INVOKABLE void devTestStaticGif();
     Q_INVOKABLE void devTestImageConvert();
@@ -861,6 +862,12 @@ private:
     // target directory), and what curl's stdout is turned into. Pure string
     // work, so it runs offline.
     QString curlDestinationCheck() const;
+    // An s3 destination offline: the SigV4 signer against AWS's own published
+    // example, where an object is PUT (virtual-hosted vs path-style, port,
+    // a prefix that must not climb out), and the guard that refuses a missing
+    // key pair before any request. Not const: the guard goes through the
+    // real testDestination().
+    QString s3DestinationCheck();
     // Puts every template variable the destination editor offers as a chip
     // through the code that has to consume it. Guards the one way this feature
     // fails silently: a chip for a token nothing substitutes uploads the literal

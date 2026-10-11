@@ -65,7 +65,7 @@ Every hotkey is rebindable in Settings → Hotkeys. The same actions run from th
 - **Edit after it** - highlight, pixelate, eraser, magnifier, callout, crop, undo/redo and zoom.
 - **Record** - region, full screen or window to GIF, MP4 or WebM, with optional system and microphone audio.
 - **Read pixels** - OCR any region or scan a QR/barcode, and copy the result.
-- **Share** - custom HTTP destinations, ShareX `.sxcu` import, FTP/SFTP and built-in hosts; the link auto-copies.
+- **Share** - custom HTTP destinations, ShareX `.sxcu` import, FTP/SFTP, Amazon S3 and S3-compatible storage (R2, MinIO, B2, Wasabi) and built-in hosts; the link auto-copies.
 - **Remember** - thumbnail history of every capture; deleting moves the file to the trash.
 - **Make it yours** - themes (one follows your system light/dark scheme and accent color) and a translated interface.
 

@@ -6,6 +6,16 @@ within it, the `### English` / `### Polski` block for the toggled language is
 displayed. Keep the newest version at the top; each version is translated as a
 whole per release (not per individual change).
 
+## 0.8.8
+
+### English
+**Added**
+- **Upload to Amazon S3 and S3-compatible storage**: the Servers page has a new server type, s3, that puts your captures straight into a bucket on Amazon S3, Cloudflare R2, MinIO, Backblaze B2, Wasabi or any other store that speaks the S3 API. Enter the bucket, region, an access key and optionally a folder and the public address of the bucket (a CDN or your own domain), and the link to the uploaded file is copied as usual. Leave the endpoint empty for Amazon itself. Recordings are sent straight from disk, however large, and Test upload checks the settings before you save them. The secret key is stored with your other server passwords, readable only by you, and kept out of the activity log
+
+### Polski
+**Dodane**
+- **Wysyłanie do Amazon S3 i magazynów zgodnych z S3**: w Serwerach jest nowy typ serwera, s3, który wysyła zrzuty prosto do kubełka w Amazon S3, Cloudflare R2, MinIO, Backblaze B2, Wasabi lub dowolnym innym magazynie obsługującym API S3. Podaj kubełek, region, klucz dostępu i opcjonalnie folder oraz publiczny adres kubełka (CDN lub własną domenę), a link do wysłanego pliku zostanie skopiowany jak zwykle. Dla samego Amazona zostaw punkt końcowy pusty. Nagrania są wysyłane prosto z dysku, niezależnie od rozmiaru, a Testowe wysłanie sprawdza ustawienia, zanim je zapiszesz. Tajny klucz jest przechowywany razem z innymi hasłami do serwerów, czytelny tylko dla Ciebie, i nie trafia do dziennika aktywności
+
 ## 0.8.7
 
 ### English

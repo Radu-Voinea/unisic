@@ -32,7 +32,8 @@ inline QString redact(QString line, const QString &home, const QString &user)
     static const QString names =
         QStringLiteral("authorization|proxy-authorization|x-api-key|api[-_]?key|"
                        "access[-_]?token|refresh[-_]?token|client[-_]?secret|"
-                       "client[-_]?id|token|secret|password|passwd|pwd");
+                       "client[-_]?id|(?:aws[-_]?)?secret[-_]?access[-_]?key|token|secret|"
+                       "password|passwd|pwd");
 
     //  a) a quoted value  ("client_secret": "xyz")  -> just what is in quotes
     static const QRegularExpression quoted(

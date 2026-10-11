@@ -39,6 +39,17 @@ private slots:
         QVERIFY(out.contains(QStringLiteral("https://x.test")));
     }
 
+    // An s3 destination's key, in its destinations.json spelling and the AWS
+    // environment one: "\bsecret\b" alone matches neither.
+    void masksS3SecretKeys()
+    {
+        const QString json = r(QStringLiteral("{\"secretAccessKey\": \"wJalrXUtnFEMI\", \"bucket\": \"shots\"}"));
+        QVERIFY(!json.contains(QStringLiteral("wJalrXUtnFEMI")));
+        QVERIFY(json.contains(QStringLiteral("shots")));
+        const QString env = r(QStringLiteral("AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI"));
+        QVERIFY(!env.contains(QStringLiteral("wJalrXUtnFEMI")));
+    }
+
     void masksBearerTokens()
     {
         const QString out = r(QStringLiteral("sending Bearer eyJhbGciOiJIUzI1NiJ9"));

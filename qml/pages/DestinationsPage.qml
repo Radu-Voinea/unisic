@@ -205,7 +205,7 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             wrapMode: Text.WordWrap
-            text: qsTr("Modular uploaders: custom HTTP APIs plus FTP/SFTP via curl. After every upload the link is copied to your clipboard.")
+            text: qsTr("Modular uploaders: custom HTTP APIs, FTP/SFTP via curl and S3-compatible storage. After every upload the link is copied to your clipboard.")
             color: Theme.textSecondary
             font.pixelSize: Theme.fontM
         }
@@ -299,7 +299,7 @@ Item {
                             anchors.rightMargin: Theme.spacingM
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: Theme.spacingM
-                            UIcon { name: modelData.type === "curl" ? "lock" : "globe"; size: 22; color: Theme.accent; anchors.verticalCenter: parent.verticalCenter }
+                            UIcon { name: modelData.type === "curl" ? "lock" : (modelData.type === "s3" ? "upload-cloud" : "globe"); size: 22; color: Theme.accent; anchors.verticalCenter: parent.verticalCenter }
                             Column {
                                 id: infoCol
                                 width: infoRow.width - 22 - Theme.spacingM
@@ -312,6 +312,11 @@ Item {
                                 readonly property bool needsUserKey:
                                     App.uploads.isVgyMeDestination(modelData)
                                     && App.uploads.vgyMeUserKeyOf(modelData) === ""
+                                // An s3 server without a bucket or key pair, the
+                                // same rule the upload precheck refuses it by.
+                                readonly property bool needsS3Setup:
+                                    App.uploads.isS3Destination(modelData)
+                                    && App.uploads.s3SetupErrorOf(modelData) !== ""
                                 Row {
                                     width: parent.width
                                     spacing: Theme.spacingS
@@ -323,7 +328,7 @@ Item {
                                     }
                                     Rectangle {
                                         id: setupChip
-                                        visible: infoCol.needsClientId || infoCol.needsUserKey
+                                        visible: infoCol.needsClientId || infoCol.needsUserKey || infoCol.needsS3Setup
                                         anchors.verticalCenter: parent.verticalCenter
                                         width: setupChipText.implicitWidth + 12
                                         height: 18
@@ -336,14 +341,15 @@ Item {
                                             anchors.centerIn: parent
                                             text: infoCol.needsClientId
                                                   ? qsTr("Needs a Client-ID")
-                                                  : qsTr("Needs a user key")
+                                                  : (infoCol.needsUserKey ? qsTr("Needs a user key")
+                                                                          : qsTr("Needs setup"))
                                             color: Theme.danger
                                             font.pixelSize: Theme.fontS - 2
                                             font.weight: Font.DemiBold
                                         }
                                     }
                                 }
-                                Text { width: parent.width; text: modelData.requestUrl || ""; color: Theme.textTertiary; font.pixelSize: Theme.fontS; elide: Text.ElideMiddle }
+                                Text { width: parent.width; text: modelData.type === "s3" ? "s3://" + (modelData.bucket || "") + (modelData.requestUrl ? "  " + modelData.requestUrl : "") : (modelData.requestUrl || ""); color: Theme.textTertiary; font.pixelSize: Theme.fontS; elide: Text.ElideMiddle }
                             }
                         }
                         Row {
@@ -407,7 +413,7 @@ Item {
             returnFocus = from || null
             var e = page.editing || {}
             fName.text = e.name || ""
-            fType.currentIndex = e.type === "curl" ? 1 : 0
+            fType.currentIndex = e.type === "curl" ? 1 : (e.type === "s3" ? 2 : 0)
             fUrl.text = e.requestUrl || ""
             fBody.currentIndex = e.body === "json" ? 1 : 0
             fFormName.text = e.fileFormName || "file"
@@ -419,6 +425,11 @@ Item {
             fUserKey.text = App.uploads.vgyMeUserKeyOf(e)
             fUser.text = e.user || ""
             fPublicBase.text = e.publicUrlBase || ""
+            fBucket.text = e.bucket || ""
+            fRegion.text = e.region || ""
+            fAccessKey.text = e.accessKeyId || ""
+            fSecretKey.text = e.secretAccessKey || ""
+            fKeyPrefix.text = e.keyPrefix || ""
             testing = false
             testDone = false
             testUrl = ""
@@ -456,10 +467,28 @@ Item {
             // builtin, urlReplace, …) still survive the round-trip.
             var d = JSON.parse(JSON.stringify(page.editing || {}))
             d.name = fName.text.trim()
-            d.type = fType.currentIndex === 1 ? "curl" : "http"
+            d.type = ["http", "curl", "s3"][fType.currentIndex]
             d.requestUrl = fUrl.text.trim()
             if (!d.method) d.method = "POST"
-            if (d.type === "http") {
+            // A server switched away from s3 must not keep its key pair in
+            // destinations.json, where nothing would ever show or use it.
+            if (d.type !== "s3")
+                ["bucket", "region", "accessKeyId", "secretAccessKey", "keyPrefix"]
+                    .forEach(function (k) { delete d[k] })
+            if (d.type === "s3") {
+                // The object key and the link are built in C++ (S3Sign), so
+                // the http/curl keys that mean nothing here are dropped rather
+                // than left to look configured in destinations.json.
+                ["method", "body", "data", "fileFormName", "arguments", "headers",
+                 "urlPath", "responseType", "user"].forEach(function (k) { delete d[k] })
+                var s3 = { bucket: fBucket.text, region: fRegion.text,
+                           accessKeyId: fAccessKey.text, secretAccessKey: fSecretKey.text,
+                           keyPrefix: fKeyPrefix.text, publicUrlBase: fPublicBase.text }
+                for (var sk in s3) {
+                    if (s3[sk].trim() !== "") d[sk] = s3[sk].trim()
+                    else delete d[sk]
+                }
+            } else if (d.type === "http") {
                 d.urlPath = fUrlPath.text.trim() || "$text$"
                 d.responseType = d.urlPath.indexOf("$json:") === 0 ? "json" : "text"
                 if (editSheet.imgurMode) {
@@ -539,6 +568,10 @@ Item {
         // the editor, the list badge and the upload precheck.
         readonly property bool imgurMode: App.uploads.isImgurDestination({ requestUrl: fUrl.text })
         readonly property bool vgyMeMode: App.uploads.isVgyMeDestination({ requestUrl: fUrl.text })
+        // Enough of a target to test or save: a request URL, except for s3,
+        // whose endpoint may be empty (AWS itself) and whose bucket may not.
+        readonly property bool targetSet: fType.currentIndex === 2 ? fBucket.text.trim() !== ""
+                                                                   : fUrl.text.trim() !== ""
         // Test-upload state. Local on purpose: App.uploads.busy is global and a
         // real capture upload running in parallel would grey the Test button out.
         property bool testing: false
@@ -755,24 +788,73 @@ Item {
                     }
                     Labeled {
                         label: qsTr("Type")
-                        hint: qsTr("http for web APIs and public hosts, curl for FTP/SFTP.")
+                        hint: qsTr("http for web APIs and public hosts, curl for FTP/SFTP, s3 for Amazon S3 and S3-compatible storage (Cloudflare R2, MinIO, Backblaze B2, Wasabi).")
                         UComboBox {
                             id: fType; width: parent.width
-                            model: ["http", "curl"]
+                            model: ["http", "curl", "s3"]
                             onActivated: (i) => fType.currentIndex = i
                         }
                     }
                     Labeled {
-                        label: qsTr("Request URL")
-                        hint: fType.currentIndex === 1
-                              ? qsTr("%file% is replaced by the file name. Without it the name is added at the end, which is what FTP and SFTP folders want.")
-                              : qsTr("%file% is replaced by the file name. Without it the address is sent exactly as typed.")
+                        label: fType.currentIndex === 2 ? qsTr("Endpoint (optional)") : qsTr("Request URL")
+                        hint: fType.currentIndex === 2
+                              ? qsTr("Leave empty for Amazon S3. For any other S3-compatible store, its S3 API address.")
+                              : (fType.currentIndex === 1
+                                 ? qsTr("%file% is replaced by the file name. Without it the name is added at the end, which is what FTP and SFTP folders want.")
+                                 : qsTr("%file% is replaced by the file name. Without it the address is sent exactly as typed."))
                         VarField {
                             id: fUrl
-                            help: page.templateHelp("requestUrl", fType.currentIndex === 1)
-                            placeholder: fType.currentIndex === 1
-                                         ? qsTr("sftp://host/path/  or  https://host/upload/%file%")
-                                         : qsTr("https://host/api/upload  or  https://host/put/%file%")
+                            // s3 substitutes nothing in its endpoint: no chips.
+                            help: fType.currentIndex === 2 ? null
+                                                           : page.templateHelp("requestUrl", fType.currentIndex === 1)
+                            placeholder: fType.currentIndex === 2
+                                         ? qsTr("https://<account>.r2.cloudflarestorage.com  or  http://localhost:9000")
+                                         : (fType.currentIndex === 1
+                                            ? qsTr("sftp://host/path/  or  https://host/upload/%file%")
+                                            : qsTr("https://host/api/upload  or  https://host/put/%file%"))
+                        }
+                    }
+                    Labeled {
+                        visible: fType.currentIndex === 2
+                        label: qsTr("Bucket")
+                        UTextField {
+                            id: fBucket; width: parent.width
+                            placeholder: qsTr("e.g. my-screenshots")
+                        }
+                    }
+                    Labeled {
+                        visible: fType.currentIndex === 2
+                        label: qsTr("Region")
+                        hint: qsTr("Empty means us-east-1. Cloudflare R2 uses auto.")
+                        UTextField {
+                            id: fRegion; width: parent.width
+                            placeholder: qsTr("e.g. eu-central-1")
+                        }
+                    }
+                    Labeled {
+                        visible: fType.currentIndex === 2
+                        label: qsTr("Access key ID")
+                        UTextField {
+                            id: fAccessKey; width: parent.width
+                            placeholder: qsTr("e.g. AKIAIOSFODNN7EXAMPLE")
+                        }
+                    }
+                    Labeled {
+                        visible: fType.currentIndex === 2
+                        label: qsTr("Secret access key")
+                        hint: qsTr("Give this key permission to upload to the bucket and nothing else. It is stored in destinations.json, readable only by you.")
+                        UTextField {
+                            id: fSecretKey; width: parent.width
+                            echoMode: TextInput.Password
+                        }
+                    }
+                    Labeled {
+                        visible: fType.currentIndex === 2
+                        label: qsTr("Folder (optional)")
+                        hint: qsTr("Where in the bucket uploads go, for example screenshots/2026. Empty puts them at the top.")
+                        UTextField {
+                            id: fKeyPrefix; width: parent.width
+                            placeholder: qsTr("e.g. screenshots")
                         }
                     }
                     Labeled {
@@ -828,6 +910,8 @@ Item {
                         font.pixelSize: Theme.fontS
                     }
                     Labeled {
+                        // An S3 PUT answers with no body; the link is built.
+                        visible: fType.currentIndex !== 2
                         label: qsTr("URL extractor")
                         hint: fType.currentIndex === 1
                               ? qsTr("Reads the link out of what the server answers. Leave it empty for a plain file server that answers nothing, and fill in the public URL base below instead.")
@@ -863,7 +947,8 @@ Item {
                         // The Client-ID field replaces this one for Imgur, which
                         // is an http destination; a curl destination always gets
                         // the raw header field.
-                        visible: fType.currentIndex === 1 || !editSheet.imgurMode
+                        visible: fType.currentIndex === 1
+                                 || (fType.currentIndex === 0 && !editSheet.imgurMode)
                         label: qsTr("Headers (JSON)")
                         UTextField {
                             id: fHeaders; width: parent.width
@@ -879,9 +964,11 @@ Item {
                         }
                     }
                     Labeled {
-                        visible: fType.currentIndex === 1
+                        visible: fType.currentIndex !== 0
                         label: qsTr("Public URL base (optional)")
-                        hint: qsTr("Where the uploaded file is reachable from. With neither this nor a URL extractor, a curl upload succeeds but no link can be copied.")
+                        hint: fType.currentIndex === 2
+                              ? qsTr("The bucket's public address, such as a CDN or custom domain; the file's path in the bucket is added to it. Empty copies the bucket's own address, which opens only for a public bucket.")
+                              : qsTr("Where the uploaded file is reachable from. With neither this nor a URL extractor, a curl upload succeeds but no link can be copied.")
                         UTextField {
                             id: fPublicBase; width: parent.width
                             placeholder: qsTr("https://host/dir/")
@@ -924,7 +1011,7 @@ Item {
                 // and there is no delete path - say so before they press it.
                 Text {
                     width: parent.width
-                    visible: fType.currentIndex === 1
+                    visible: fType.currentIndex !== 0
                     wrapMode: Text.WordWrap
                     text: qsTr("A test upload really writes unisic-test.png to this server. Unisic cannot remove it again.")
                     color: Theme.textTertiary
@@ -941,7 +1028,7 @@ Item {
                         variant: "tonal"
                         iconName: "upload-cloud"
                         text: editSheet.testing ? qsTr("Testing…") : qsTr("Test upload")
-                        enabled: !editSheet.testing && fUrl.text.trim() !== ""
+                        enabled: !editSheet.testing && editSheet.targetSet
                         onClicked: {
                             var d = editSheet.buildDest()
                             if (!d)
@@ -983,7 +1070,7 @@ Item {
                         UButton {
                             id: saveBtn
                             text: qsTr("Save")
-                            enabled: fName.text.trim() !== "" && fUrl.text.trim() !== ""
+                            enabled: fName.text.trim() !== "" && editSheet.targetSet
                             // Last control of a modal sheet: Tab wraps back to
                             // the top of the form. The page behind is disabled
                             // (see pageFlick), so this closes the loop.

@@ -18,6 +18,7 @@
 #include "capture/PortalRequest.h"
 #include "overlay/OverlayController.h"
 #include "upload/UploadManager.h"
+#include "upload/S3Sign.h"
 #include "actions/ExternalActionRunner.h"
 #include "history/HistoryStore.h"
 #include "history/HistoryFilterModel.h"
@@ -35,6 +36,7 @@
 #include "hotkeys/X11Hotkeys.h"
 #include "record/X11ShmGrabber.h"
 #include <QThread>
+#include <QTimeZone>
 #include "record/GifRecorder.h"
 #include "record/VideoQuality.h"
 #include "media/FfmpegUtil.h"
@@ -3278,6 +3280,74 @@ void AppContext::devTestCurlDestination()
     showToast(tr("Dev: curl destination: %1").arg(curlDestinationCheck()));
 }
 
+QString AppContext::s3DestinationCheck()
+{
+    QStringList fails;
+    // 1) The signer, against the GET example AWS publishes for SigV4 with its
+    // published signature. A drift here is SignatureDoesNotMatch on every
+    // real upload, and nothing short of a real bucket would show it otherwise.
+    S3Sign::Request r;
+    r.method = "GET";
+    r.canonicalUri = "/test.txt";
+    r.payloadHash = S3Sign::sha256Hex({});
+    r.region = QStringLiteral("us-east-1");
+    r.accessKeyId = QStringLiteral("AKIAIOSFODNN7EXAMPLE");
+    r.secretAccessKey = QStringLiteral("wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY");
+    r.when = QDateTime(QDate(2013, 5, 24), QTime(0, 0), QTimeZone::utc());
+    r.headers = {{"host", "examplebucket.s3.amazonaws.com"}, {"range", "bytes=0-9"},
+                 {"x-amz-content-sha256", r.payloadHash}, {"x-amz-date", "20130524T000000Z"}};
+    if (!S3Sign::authorization(r).endsWith(
+            "Signature=f0e8bdb87c964420e857bd35b5d6ed310bd44f0170aba48dd91039c6036bdb41"))
+        fails << QStringLiteral("SigV4 signature differs from AWS's published example");
+
+    // 2) Where an object goes: AWS virtual-hosted, a MinIO-style path-style
+    // endpoint with its port, and a prefix that tries to climb out.
+    auto where = [&](const QJsonObject &dest, const QString &want) {
+        const S3Sign::Target t = S3Sign::target(dest, QStringLiteral("a b.png"));
+        const QString got = t.url.toString(QUrl::FullyEncoded);
+        if (!t.error.isEmpty() || got != want)
+            fails << QStringLiteral("target -> %1 %2 (want %3)").arg(got, t.error, want);
+    };
+    where(QJsonObject{{QStringLiteral("bucket"), QStringLiteral("shots")},
+                      {QStringLiteral("region"), QStringLiteral("eu-central-1")}},
+          QStringLiteral("https://shots.s3.eu-central-1.amazonaws.com/a%20b.png"));
+    where(QJsonObject{{QStringLiteral("requestUrl"), QStringLiteral("http://localhost:9000")},
+                      {QStringLiteral("bucket"), QStringLiteral("b")},
+                      {QStringLiteral("keyPrefix"), QStringLiteral("../x")}},
+          QStringLiteral("http://localhost:9000/b/x/a%20b.png"));
+
+    // 3) The guard: no key pair is refused before any request goes out, with
+    // the reason, and the busy lamp is never lit for it.
+    bool called = false;
+    QString error;
+    m_uploads->testDestination(QVariantMap{{QStringLiteral("name"), QStringLiteral("unisic-smoke-s3")},
+                                           {QStringLiteral("type"), QStringLiteral("s3")},
+                                           {QStringLiteral("bucket"), QStringLiteral("b")}},
+                               [&](bool ok, const QString &, const QString &err) {
+        called = true;
+        if (ok)
+            fails << QStringLiteral("test succeeded without a key pair");
+        error = err;
+    });
+    if (!called)
+        fails << QStringLiteral("missing key pair: test was attempted, not refused");
+    else if (error != UploadManager::s3SetupError(QJsonObject{{QStringLiteral("bucket"), QStringLiteral("b")}}))
+        fails << QStringLiteral("unexpected guard error: ") + error.left(80);
+    if (m_uploads->busy())
+        fails << QStringLiteral("a refused test lit the busy state");
+
+    return fails.isEmpty()
+        ? QStringLiteral("PASS (SigV4 matches AWS example, virtual/path-style targets, missing keys refused)")
+        : QStringLiteral("FAIL (%1)").arg(fails.join(QStringLiteral("; ")));
+}
+
+void AppContext::devTestS3Destination()
+{
+    if (!devBuild())
+        return;
+    showToast(tr("Dev: S3 destination: %1").arg(s3DestinationCheck()));
+}
+
 QString AppContext::templateVarsCheck() const
 {
     QStringList fails;
@@ -4186,6 +4256,7 @@ void AppContext::runSmokeTest()
         smokeLog(QStringLiteral("Imgur Client-ID guard: ") + imgurSetupCheck());
         smokeLog(QStringLiteral("vgy.me support: ") + vgyMeCheck());
         smokeLog(QStringLiteral("curl destination: ") + curlDestinationCheck());
+        smokeLog(QStringLiteral("S3 destination: ") + s3DestinationCheck());
         smokeLog(QStringLiteral("template variables: ") + templateVarsCheck());
         smokeLog(QStringLiteral("still GIF: ") + staticGifCheck());
         smokeLog(QStringLiteral("image conversion: ") + imageConvertCheck());

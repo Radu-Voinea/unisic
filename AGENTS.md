@@ -116,7 +116,8 @@ src/
                         GifRecorder picks the frame source at runtime: PipeWire on Wayland, the
                         kit's X11ShmGrabber on an xcb session (openX11Session, no window source).
   upload/              UploadManager (.sxcu-like destinations.json; $text$/$json:$/$regex:$;
-                        type:"curl" shells to curl for FTP/SFTP).
+                        type:"curl" shells to curl for FTP/SFTP; type:"s3" PUTs to S3-compatible
+                        storage, signed with SigV4 by S3Sign).
   history/             HistoryStore (capture history + thumbnails).
   hotkeys/             GlobalHotkeys (KGlobalAccel/DBus), PortalGlobalShortcuts (non-KDE), and
                        on X11 the kit's X11Hotkeys (XGrabKey). AppContext::m_hotkeyBackend
