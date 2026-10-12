@@ -53,6 +53,7 @@
 #include "ConfigPath.h"
 #include "FilenameTemplate.h"
 #include "ImageEncode.h"
+#include "actions/FileManagerMenu.h"
 #include <QSaveFile>
 #include "ocr/OcrEngine.h"
 #include <ZXing/BitMatrix.h>
@@ -94,6 +95,7 @@
 #include <QDateTime>
 #include <QElapsedTimer>
 #include <QDir>
+#include <QSettings>
 #include <QBuffer>
 #include <QTimer>
 #include <QProcess>
@@ -320,6 +322,14 @@ void AppContext::initialize(QQmlEngine *engine)
     // rebuild the tray menu). The initial install happens in main() before the
     // engine loads.
     connect(m_settings, &Settings::uiLanguageChanged, this, &AppContext::applyLanguage);
+    // The right-click "Upload with Unisic" entry. Re-written on a language
+    // change too: its label is translated when it is written, not when shown.
+    // Never from a smoke run's scratch instance or a batch mode: those do not
+    // reach initialize().
+    applyFileManagerMenu();
+    connect(m_settings, &Settings::fileManagerUploadMenuChanged, this,
+            &AppContext::applyFileManagerMenu);
+    connect(m_settings, &Settings::uiLanguageChanged, this, &AppContext::applyFileManagerMenu);
 
     // Detect layer-shell ONCE - it drives the on-top custom capture card, the
     // record-region border (so it works beyond KWin: wlroots…), and the preview
@@ -6356,4 +6366,174 @@ void AppContext::setAutostartEnabled(bool on)
         return; // state unchanged; the switch snaps back on the next read
     }
     emit autostartEnabledChanged();
+}
+
+// --- "Upload with Unisic" from a file manager ---------------------------------
+
+// The host's XDG data home, where the file managers look for their menu
+// entries. Inside a Flatpak $XDG_DATA_HOME is ~/.var/app/<id>/data, which no
+// file manager reads; the manifest grants the three host folders by their
+// real path instead.
+QString AppContext::fileManagerDataHome()
+{
+    if (sandboxed()) {
+        const QString host = qEnvironmentVariable("HOST_XDG_DATA_HOME");
+        return host.isEmpty() ? QDir::homePath() + QStringLiteral("/.local/share") : host;
+    }
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
+}
+
+// How the HOST starts this very install. A file manager runs the entry outside
+// any sandbox, so a Flatpak names itself through `flatpak run` (with the
+// installation it actually lives in: a user and a system copy of the same id
+// can coexist, and `flatpak run` alone may pick the other one), an AppImage by
+// its image file rather than the transient mount, anything else by its binary.
+static FileManagerMenu::Launcher fileManagerLauncher()
+{
+    FileManagerMenu::Launcher l;
+    if (sandboxed()) {
+        QSettings info(QStringLiteral("/.flatpak-info"), QSettings::IniFormat);
+        const QString appPath = info.value(QStringLiteral("Instance/app-path")).toString();
+        l.program << QStringLiteral("flatpak") << QStringLiteral("run");
+        if (appPath.startsWith(QDir::homePath() + QLatin1Char('/')))
+            l.program << QStringLiteral("--user");
+        else if (appPath.startsWith(QLatin1String("/var/lib/flatpak/")))
+            l.program << QStringLiteral("--system");
+        l.program << qEnvironmentVariable("FLATPAK_ID");
+        l.fileForwarding = true;
+        return l;
+    }
+    const QString appImage = qEnvironmentVariable("APPIMAGE");
+    l.program << (appImage.isEmpty() ? QCoreApplication::applicationFilePath() : appImage);
+    return l;
+}
+
+static QString fileManagerLabel()
+{
+    return AppContext::tr("Upload with %1").arg(QGuiApplication::applicationDisplayName());
+}
+
+void AppContext::applyFileManagerMenu()
+{
+    QString error;
+    const QStringList written = FileManagerMenu::apply(
+        m_settings->fileManagerUploadMenu(), fileManagerDataHome(), QGuiApplication::desktopFileName(),
+        fileManagerLauncher(), fileManagerLabel(), QGuiApplication::desktopFileName(), &error);
+    if (!error.isEmpty())
+        qWarning().noquote() << "File manager menu:" << error;
+    else if (!written.isEmpty())
+        qInfo().noquote() << "File manager menu:" << written.join(QStringLiteral(", "));
+}
+
+QStringList AppContext::uploadableFiles(const QStringList &paths, QStringList *rejected)
+{
+    QStringList files;
+    for (const QString &path : paths) {
+        const QFileInfo fi(path);
+        // A folder would need zipping first, and the menu entry is not offered
+        // on folders anyway; a dangling or unreadable path fails here with
+        // its name rather than as an obscure network error later.
+        if (fi.isFile() && fi.isReadable())
+            files << fi.absoluteFilePath();
+        else if (rejected)
+            *rejected << path;
+    }
+    return files;
+}
+
+void AppContext::uploadFiles(const QStringList &paths)
+{
+    // One notification per batch, updated in place: "Uploading" turns into the
+    // result instead of stacking a second bubble on top.
+    struct Batch {
+        QStringList urls;
+        QStringList errors;
+        int pending = 0;
+        uint notificationId = 0;
+    };
+    auto batch = std::make_shared<Batch>();
+    const auto notify = [batch](const QString &summary, const QString &body) {
+        QDBusMessage m = QDBusMessage::createMethodCall(
+            QStringLiteral("org.freedesktop.Notifications"),
+            QStringLiteral("/org/freedesktop/Notifications"),
+            QStringLiteral("org.freedesktop.Notifications"), QStringLiteral("Notify"));
+        // The body is markup on most servers: a link with '&' in its query
+        // would otherwise cut the text short.
+        m << QGuiApplication::applicationDisplayName() << batch->notificationId
+          << QGuiApplication::desktopFileName() << summary << body.toHtmlEscaped()
+          << QStringList()
+          << QVariantMap{{QStringLiteral("desktop-entry"), QGuiApplication::desktopFileName()}}
+          << -1;
+        auto *watcher = new QDBusPendingCallWatcher(
+            QDBusConnection::sessionBus().asyncCall(m), qApp);
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, qApp,
+                         [batch](QDBusPendingCallWatcher *w) {
+            const QDBusMessage reply = w->reply();
+            if (reply.type() == QDBusMessage::ReplyMessage && !reply.arguments().isEmpty())
+                batch->notificationId = reply.arguments().constFirst().toUInt();
+            w->deleteLater();
+        });
+    };
+
+    QStringList rejected;
+    const QStringList files = uploadableFiles(paths, &rejected);
+    for (const QString &path : std::as_const(rejected))
+        batch->errors << tr("Not a readable file: %1").arg(path);
+    qInfo().noquote() << "Upload from the file manager:" << files.size() << "file(s),"
+                      << rejected.size() << "refused";
+    if (files.isEmpty()) {
+        const QString text = batch->errors.isEmpty() ? tr("No file to upload")
+                                                     : batch->errors.join(QLatin1Char('\n'));
+        showToast(text, true);
+        notify(tr("Upload failed"), text);
+        return;
+    }
+
+    QStringList names;
+    for (const QString &f : files)
+        names << QFileInfo(f).fileName();
+    showToast(tr("Uploading %1…").arg(names.join(QStringLiteral(", "))));
+    notify(tr("Uploading…"), names.join(QLatin1Char('\n')));
+
+    batch->urls.resize(files.size());
+    batch->pending = int(files.size());
+    for (int i = 0; i < files.size(); ++i) {
+        const QString file = files.at(i);
+        m_uploads->uploadFile(file, [this, batch, notify, file, i](const QString &url,
+                                                                  const QString &del,
+                                                                  const QString &err) {
+            if (!err.isEmpty())
+                batch->errors << QFileInfo(file).fileName() + QStringLiteral(": ") + err;
+            else if (url.isEmpty())
+                batch->errors << tr("%1: uploaded, but this server returns no link")
+                                     .arg(QFileInfo(file).fileName());
+            else
+                batch->urls[i] = url;
+            // A file that is also a capture in history gets its link there too.
+            if (err.isEmpty() && !url.isEmpty())
+                m_history->setUrl(file, url, del);
+            if (--batch->pending > 0)
+                return;
+
+            QStringList links;
+            for (const QString &u : std::as_const(batch->urls)) {
+                if (!u.isEmpty())
+                    links << u;
+            }
+            qInfo().noquote() << "Upload from the file manager done:" << links.size()
+                              << "link(s)," << batch->errors.size() << "error(s)";
+            if (links.isEmpty()) {
+                const QString text = batch->errors.join(QLatin1Char('\n'));
+                showToast(tr("Upload failed: %1").arg(text), true);
+                notify(tr("Upload failed"), text);
+                return;
+            }
+            // In the order the files were selected, one per line.
+            copyText(links.join(QLatin1Char('\n')));
+            const QString summary = links.size() == 1 ? tr("Link copied to clipboard")
+                                                      : tr("Links copied to clipboard");
+            showToast(summary);
+            notify(summary, (links + batch->errors).join(QLatin1Char('\n')));
+        });
+    }
 }

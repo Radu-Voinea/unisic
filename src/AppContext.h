@@ -320,6 +320,7 @@ public:
     Q_INVOKABLE void devTestVgyMe();
     Q_INVOKABLE void devTestCurlDestination();
     Q_INVOKABLE void devTestS3Destination();
+    Q_INVOKABLE void devTestFileManagerMenu();
     Q_INVOKABLE void devTestTemplateVars();
     Q_INVOKABLE void devTestStaticGif();
     Q_INVOKABLE void devTestImageConvert();
@@ -722,6 +723,22 @@ public:
     // Upload a saved capture file (history card) to the active destination and
     // write the resulting URL back onto its history entry.
     Q_INVOKABLE void uploadFromHistory(const QString &filePath);
+    // `unisic --upload <files>`, i.e. "Upload with Unisic" in a file manager:
+    // each file goes to the active server as it is (never re-encoded, it is
+    // not a capture), and every link is copied once all of them are done -
+    // always, whatever "Copy link to clipboard" says, because copying the
+    // link is the whole point of that menu item. Feedback is a desktop
+    // notification: the main window is usually hidden in the tray.
+    Q_INVOKABLE void uploadFiles(const QStringList &paths);
+    // The paths of `paths` that are readable regular files; the others are
+    // appended to *rejected. Split out so the F8 check needs no upload.
+    static QStringList uploadableFiles(const QStringList &paths, QStringList *rejected);
+    // Writes or removes "Upload with Unisic" in the file managers' right-click
+    // menus (FileManagerMenu) to match Settings::fileManagerUploadMenu.
+    void applyFileManagerMenu();
+    // The host's XDG data home, where the file managers read their entries
+    // (not the sandbox's own one inside a Flatpak).
+    static QString fileManagerDataHome();
     void ocrImage(const QImage &img);                // OCR + copy recognized text
     // OCR the image and deliver per-word boxes on the GUI thread (editor's
     // selectable-text overlay). Empty words + a message on failure/no-OCR.
@@ -868,6 +885,11 @@ private:
     // key pair before any request. Not const: the guard goes through the
     // real testDestination().
     QString s3DestinationCheck();
+    // The right-click "Upload with Unisic" entries: generated into a scratch
+    // data dir (service menu +x, Exec running --upload -- %F through this
+    // install's own launcher), removed again, the live entry matching the
+    // setting, and --upload's file filter refusing a folder and a missing file.
+    QString fileManagerMenuCheck();
     // Puts every template variable the destination editor offers as a chip
     // through the code that has to consume it. Guards the one way this feature
     // fails silently: a chip for a token nothing substitutes uploads the literal

@@ -118,6 +118,9 @@ src/
   upload/              UploadManager (.sxcu-like destinations.json; $text$/$json:$/$regex:$;
                         type:"curl" shells to curl for FTP/SFTP; type:"s3" PUTs to S3-compatible
                         storage, signed with SigV4 by S3Sign).
+  actions/             ExternalActionRunner (the after-capture program), FileManagerMenu (the
+                        "Upload with Unisic" right-click entries for Dolphin, Nautilus and Nemo,
+                        which run `unisic --upload -- <files>`).
   history/             HistoryStore (capture history + thumbnails).
   hotkeys/             GlobalHotkeys (KGlobalAccel/DBus), PortalGlobalShortcuts (non-KDE), and
                        on X11 the kit's X11Hotkeys (XGrabKey). AppContext::m_hotkeyBackend

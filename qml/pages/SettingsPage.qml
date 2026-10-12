@@ -1573,6 +1573,12 @@ Item {
                         helpDetail: qsTr("Runs after every successful upload, using the system default browser.")
                         USwitch { checked: App.settings.afterUploadOpenInBrowser; onToggled: (c) => App.settings.afterUploadOpenInBrowser = c }
                     }
+                    SettingRow {
+                        label: qsTr("Upload from the file manager")
+                        help: qsTr("Adds “Upload with Unisic” to the right-click menu of every file.")
+                        helpDetail: qsTr("Works in Dolphin, the Plasma desktop and KDE file dialogs, and in Nautilus and Nemo. The file goes to the server selected on the Servers page and its link is copied to the clipboard.")
+                        USwitch { checked: App.settings.fileManagerUploadMenu; onToggled: (c) => App.settings.fileManagerUploadMenu = c }
+                    }
                 }
             }
 
@@ -3913,6 +3919,7 @@ Item {
                         UButton { compact: true; variant: "tonal"; text: qsTr("vgy.me support"); onClicked: App.devTestVgyMe() }
                         UButton { compact: true; variant: "tonal"; text: qsTr("curl destination"); onClicked: App.devTestCurlDestination() }
                         UButton { compact: true; variant: "tonal"; text: qsTr("S3 destination"); onClicked: App.devTestS3Destination() }
+                        UButton { compact: true; variant: "tonal"; text: qsTr("File manager upload"); onClicked: App.devTestFileManagerMenu() }
                         UButton { compact: true; variant: "tonal"; text: qsTr("Template variables"); onClicked: App.devTestTemplateVars() }
                         UButton { compact: true; variant: "tonal"; text: qsTr("Still GIF"); onClicked: App.devTestStaticGif() }
                         UButton { compact: true; variant: "tonal"; text: qsTr("Image conversion"); onClicked: App.devTestImageConvert() }

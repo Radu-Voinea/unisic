@@ -88,6 +88,17 @@ Print the compiled version and exit without starting the application.
 Start hidden in the system tray, with no window. This is what the autostart
 entry uses, so the global shortcuts work right after login.
 .TP
+.BI \-\-upload " FILE..."
+Upload each
+.I FILE
+as it is to the server selected on the Servers page and copy the links to the
+clipboard, one per line, once every file is done. A running instance does the
+upload; without one, Unisic starts hidden in the tray. Everything after
+.B \-\-
+is taken as a file name, even one that starts with a dash. This is what the
+.I Upload with Unisic
+entry in the file manager's right\-click menu runs.
+.TP
 .BI \-\-hotkey " ACTION"
 Run one capture action by name. This exists for desktops with no global\-shortcut
 service of their own, where Unisic writes its bindings into the desktop's own

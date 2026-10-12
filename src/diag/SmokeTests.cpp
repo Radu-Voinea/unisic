@@ -20,6 +20,7 @@
 #include "upload/UploadManager.h"
 #include "upload/S3Sign.h"
 #include "actions/ExternalActionRunner.h"
+#include "actions/FileManagerMenu.h"
 #include "history/HistoryStore.h"
 #include "history/HistoryFilterModel.h"
 #include "hotkeys/GlobalHotkeys.h"
@@ -3348,6 +3349,82 @@ void AppContext::devTestS3Destination()
     showToast(tr("Dev: S3 destination: %1").arg(s3DestinationCheck()));
 }
 
+QString AppContext::fileManagerMenuCheck()
+{
+    QStringList fails;
+    // 1) The entries themselves, generated into a scratch data home with a
+    // launcher path that needs quoting and the Flatpak form side by side.
+    QTemporaryDir tmp;
+    if (!tmp.isValid())
+        return QStringLiteral("SKIP (no temporary directory)");
+    const QString home = tmp.path();
+    QDir().mkpath(home + QStringLiteral("/nemo"));
+    QString error;
+    FileManagerMenu::Launcher native;
+    native.program << QStringLiteral("/opt/My Apps/unisic");
+    const QStringList written = FileManagerMenu::apply(
+        true, home, QStringLiteral("unisic-smoke"), native, QStringLiteral("Upload with Unisic"),
+        QStringLiteral("unisic-smoke"), &error);
+    const QString menu = FileManagerMenu::serviceMenuPath(home, QStringLiteral("unisic-smoke"));
+    QFile f(menu);
+    if (!error.isEmpty())
+        fails << QStringLiteral("write: ") + error;
+    if (!f.open(QIODevice::ReadOnly)) {
+        fails << QStringLiteral("no service menu written");
+    } else {
+        const QByteArray body = f.readAll();
+        if (!body.contains("Exec=\"/opt/My Apps/unisic\" --upload -- %F\n"))
+            fails << QStringLiteral("service menu Exec is wrong");
+        if (!body.contains("MimeType=application/octet-stream;"))
+            fails << QStringLiteral("service menu is not offered on every file");
+        if (!(f.permissions() & QFileDevice::ExeUser))
+            fails << QStringLiteral("service menu not executable (Dolphin hides it)");
+    }
+    if (written.size() != 2)
+        fails << QStringLiteral("expected a service menu and a Nemo action, wrote %1")
+                     .arg(written.size());
+    FileManagerMenu::apply(false, home, QStringLiteral("unisic-smoke"), native, {}, {}, nullptr);
+    if (QFileInfo::exists(menu))
+        fails << QStringLiteral("disabling left the service menu behind");
+
+    // 2) The live entry follows the setting.
+    const QString live = FileManagerMenu::serviceMenuPath(fileManagerDataHome(),
+                                                          QGuiApplication::desktopFileName());
+    if (QFileInfo::exists(live) != m_settings->fileManagerUploadMenu())
+        fails << QStringLiteral("live entry %1 while the setting is %2")
+                     .arg(QFileInfo::exists(live) ? QStringLiteral("present")
+                                                  : QStringLiteral("missing"),
+                          m_settings->fileManagerUploadMenu() ? QStringLiteral("on")
+                                                              : QStringLiteral("off"));
+
+    // 3) --upload's filter: a folder and a missing file are refused by name,
+    // a real file passes, before anything reaches the network.
+    const QString file = home + QStringLiteral("/a b.txt");
+    QFile out(file);
+    if (out.open(QIODevice::WriteOnly))
+        out.write("x");
+    out.close();
+    QStringList rejected;
+    const QStringList ok = uploadableFiles({file, home, home + QStringLiteral("/missing")},
+                                           &rejected);
+    if (ok != QStringList{file} || rejected.size() != 2)
+        fails << QStringLiteral("upload filter kept %1, refused %2")
+                     .arg(ok.size()).arg(rejected.size());
+
+    return fails.isEmpty()
+        ? QStringLiteral("PASS (service menu +x with --upload -- %F, removed when off, live entry %1, folders refused)")
+              .arg(m_settings->fileManagerUploadMenu() ? QStringLiteral("installed")
+                                                       : QStringLiteral("absent"))
+        : QStringLiteral("FAIL (%1)").arg(fails.join(QStringLiteral("; ")));
+}
+
+void AppContext::devTestFileManagerMenu()
+{
+    if (!devBuild())
+        return;
+    showToast(tr("Dev: file manager upload: %1").arg(fileManagerMenuCheck()));
+}
+
 QString AppContext::templateVarsCheck() const
 {
     QStringList fails;
@@ -4257,6 +4334,7 @@ void AppContext::runSmokeTest()
         smokeLog(QStringLiteral("vgy.me support: ") + vgyMeCheck());
         smokeLog(QStringLiteral("curl destination: ") + curlDestinationCheck());
         smokeLog(QStringLiteral("S3 destination: ") + s3DestinationCheck());
+        smokeLog(QStringLiteral("file manager upload: ") + fileManagerMenuCheck());
         smokeLog(QStringLiteral("template variables: ") + templateVarsCheck());
         smokeLog(QStringLiteral("still GIF: ") + staticGifCheck());
         smokeLog(QStringLiteral("image conversion: ") + imageConvertCheck());

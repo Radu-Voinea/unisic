@@ -66,6 +66,7 @@ static void printHelp(FILE *stream)
         "Other options:\n"
         "  --export-settings PATH       Export settings without starting the UI\n"
         "  --import-settings PATH       Import settings without starting the UI\n"
+        "  --upload FILE...             Upload files and copy their links\n"
         "  --hotkey ID                  Run a configured hotkey action\n"
         "  --tray-only                  Start without showing the main window\n"
         "  --help                       Show this help and exit\n"
@@ -82,7 +83,8 @@ static bool isKnownOption(const char *argument)
            || option == "--output" || option.startsWith("--output=")
            || option == "--format" || option.startsWith("--format=")
            || option == "--export-settings" || option == "--import-settings"
-           || option == "--hotkey" || option == "--tray-only" || option == "--help"
+           || option == "--hotkey" || option == "--upload" || option == "--tray-only"
+           || option == "--help"
            || option == "--version";
 }
 
@@ -97,6 +99,8 @@ static const char *optionMissingValue(int argc, char *argv[])
 {
     for (int i = 1; i < argc; ++i) {
         const QByteArray option(argv[i]);
+        if (option == "--")
+            break; // only file names follow
         if (optionRequiresValue(option)
             && (i + 1 == argc || qstrncmp(argv[i + 1], "--", 2) == 0))
             return argv[i];
@@ -108,18 +112,52 @@ static const char *optionMissingValue(int argc, char *argv[])
     return nullptr;
 }
 
+// Positional arguments are file names for --upload and nothing else. After a
+// bare `--` everything is a file name, even one that starts with "--": the
+// file-manager entries always pass one, so a file called "--region" uploads
+// instead of taking a screenshot.
 static const char *unexpectedArgument(int argc, char *argv[])
 {
+    bool upload = false;
     for (int i = 1; i < argc; ++i) {
         const QByteArray argument(argv[i]);
+        if (argument == "--")
+            return upload || i + 1 == argc ? nullptr : argv[i + 1];
         if (argument.startsWith("--")) {
+            if (argument == "--upload")
+                upload = true;
             if (optionRequiresValue(argument))
                 ++i;
             continue;
         }
-        return argv[i];
+        if (!upload)
+            return argv[i];
     }
     return nullptr;
+}
+
+// The files given to --upload, made absolute against THIS process's working
+// directory: the running instance they are handed to has its own.
+static QStringList cliUploadPaths(const QStringList &args)
+{
+    QStringList paths;
+    if (!args.contains(QLatin1String("--upload")))
+        return paths;
+    bool filesOnly = false;
+    for (int i = 1; i < args.size(); ++i) {
+        const QString &arg = args.at(i);
+        if (!filesOnly && arg == QLatin1String("--")) {
+            filesOnly = true;
+            continue;
+        }
+        if (!filesOnly && arg.startsWith(QLatin1String("--"))) {
+            if (optionRequiresValue(arg.toUtf8()))
+                ++i;
+            continue;
+        }
+        paths << QFileInfo(arg).absoluteFilePath();
+    }
+    return paths;
 }
 
 // SIGINT/SIGTERM/SIGHUP must run destructors (QSettings flush, temp-file
@@ -255,6 +293,15 @@ static QByteArray cliCommand(const QStringList &args)
         return command;
     }
     if (args.contains(QLatin1String("--gif"))) return "gif";
+    // `--upload <files>`: each path base64url, so spaces and newlines in a
+    // file name cannot break the space-separated protocol.
+    if (args.contains(QLatin1String("--upload"))) {
+        QByteArray upload = "upload";
+        for (const QString &path : cliUploadPaths(args))
+            upload += ' ' + path.toUtf8().toBase64(QByteArray::Base64UrlEncoding
+                                                   | QByteArray::OmitTrailingEquals);
+        return upload;
+    }
     // `--hotkey <id>` runs a hotkey action's entry point. This is what the
     // desktop custom-shortcut bindings spawn on desktops with no native hotkey
     // backend (COSMIC/Xfce/…), so a running instance behaves like a key press.
@@ -339,6 +386,13 @@ static bool dispatchCliCommand(const QByteArray &wireCommand, AppContext &contex
     else if (command == "recapture") context.recaptureLastRegion();
     else if (command == "gif") context.startGifRegion();
     else if (command == "hotkey") context.runHotkeyAction(QString::fromUtf8(parts.value(1)));
+    else if (command == "upload") {
+        QStringList paths;
+        for (int i = 1; i < parts.size(); ++i)
+            paths << QString::fromUtf8(QByteArray::fromBase64(parts.at(i),
+                                                              QByteArray::Base64UrlEncoding));
+        context.uploadFiles(paths);
+    }
     else if (command == "tray") { /* already running — stay in tray */ }
     else QMetaObject::invokeMethod(&context, "showMainWindowRequested", Qt::QueuedConnection);
     return toStdout;
@@ -698,6 +752,8 @@ int main(int argc, char *argv[])
             return runNotificationHelper(argc, argv);
     }
     for (int i = 1; i < argc; ++i) {
+        if (qstrcmp(argv[i], "--") == 0)
+            break; // only file names follow
         if (qstrncmp(argv[i], "--", 2) == 0 && !isKnownOption(argv[i])) {
             std::fprintf(stderr, "Unknown option: %s\n\n", argv[i]);
             printHelp(stderr);
@@ -732,6 +788,18 @@ int main(int argc, char *argv[])
                                    || args.contains(QLatin1String("--recapture"));
     if (delayMs >= 0 && !screenshotRequested) {
         std::fputs("--delay requires --fullscreen, --region, --window, --measure, --monitor, or --recapture\n\n", stderr);
+        printHelp(stderr);
+        return 2;
+    }
+    const bool uploadRequested = args.contains(QLatin1String("--upload"));
+    if (uploadRequested && cliUploadPaths(args).isEmpty()) {
+        std::fputs("--upload requires at least one file\n\n", stderr);
+        printHelp(stderr);
+        return 2;
+    }
+    if (uploadRequested && (screenshotRequested || args.contains(QLatin1String("--scroll"))
+                            || args.contains(QLatin1String("--gif")))) {
+        std::fputs("--upload cannot be combined with a capture mode\n\n", stderr);
         printHelp(stderr);
         return 2;
     }
@@ -931,7 +999,7 @@ int main(int argc, char *argv[])
     // still shows the window. Set BEFORE load so there is no visible flash.
     const bool trayOnly = args.contains(QLatin1String("--tray-only"));
     engine.rootContext()->setContextProperty(QStringLiteral("startHidden"),
-                                             trayOnly || stdoutCapture);
+                                             trayOnly || stdoutCapture || uploadRequested);
     context.initialize(&engine);
 
     if (singleInstanceServer) {
@@ -1008,7 +1076,7 @@ int main(int argc, char *argv[])
         QObject::connect(&context, &AppContext::cliCaptureFinished, &app,
                          [&app](bool ok) { app.exit(ok ? 0 : 1); });
     }
-    QTimer::singleShot(300, &context, [&context, args, delayMs, outputArg, outputFormat] {
+    QTimer::singleShot(300, &context, [&context, args, delayMs, outputArg, outputFormat, uploadRequested] {
         if (delayMs >= 0)
             context.setNextCaptureDelayMs(delayMs);
         if (!outputArg.isEmpty()) {
@@ -1027,6 +1095,8 @@ int main(int argc, char *argv[])
         else if (args.contains(QLatin1String("--gif"))) context.startGifRegion();
         else if (args.contains(QLatin1String("--hotkey")))
             context.runHotkeyAction(cliValue(args, QStringLiteral("--hotkey")));
+        else if (uploadRequested)
+            context.uploadFiles(cliUploadPaths(args));
     });
 
     // Safety net for --tray-only: if this desktop has no system-tray host AT ALL

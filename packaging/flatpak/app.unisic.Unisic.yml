@@ -26,6 +26,15 @@ finish-args:
   # Default save locations (Settings can point elsewhere through the portal).
   - --filesystem=xdg-pictures:create
   - --filesystem=xdg-videos:create
+  # "Upload with Unisic" in the file manager's right-click menu
+  # (src/actions/FileManagerMenu.cpp). A Flatpak cannot export a service menu,
+  # so the app writes its own entry, and only into these folders. Nautilus and
+  # Nemo are not :create - their folders appear only where those file managers
+  # already made them. The files themselves reach the sandbox per file, through
+  # `flatpak run --file-forwarding` in the entry, never through a broad grant.
+  - --filesystem=xdg-data/kio/servicemenus:create
+  - --filesystem=xdg-data/nautilus/scripts
+  - --filesystem=xdg-data/nemo/actions
   # The pressed-key badge and the click ripple read /dev/input event devices
   # through the bundled libinput. Without this the devices are simply not there.
   - --require-version=1.16.0

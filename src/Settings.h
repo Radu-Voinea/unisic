@@ -94,6 +94,7 @@ class Settings : public QObject
     Q_PROPERTY(bool minimizeToTrayOnClose READ minimizeToTrayOnClose WRITE setMinimizeToTrayOnClose NOTIFY minimizeToTrayOnCloseChanged)
     Q_PROPERTY(bool openAfterSave READ openAfterSave WRITE setOpenAfterSave NOTIFY openAfterSaveChanged)
     Q_PROPERTY(bool afterUploadCopyLink READ afterUploadCopyLink WRITE setAfterUploadCopyLink NOTIFY afterUploadCopyLinkChanged)
+    Q_PROPERTY(bool fileManagerUploadMenu READ fileManagerUploadMenu WRITE setFileManagerUploadMenu NOTIFY fileManagerUploadMenuChanged)
     Q_PROPERTY(bool afterUploadOpenInBrowser READ afterUploadOpenInBrowser WRITE setAfterUploadOpenInBrowser NOTIFY afterUploadOpenInBrowserChanged)
     Q_PROPERTY(bool doNotDisturbWhileCapturing READ doNotDisturbWhileCapturing WRITE setDoNotDisturbWhileCapturing NOTIFY doNotDisturbWhileCapturingChanged)
     Q_PROPERTY(bool externalActionEnabled READ externalActionEnabled WRITE setExternalActionEnabled NOTIFY externalActionEnabledChanged)
@@ -490,6 +491,8 @@ public:
     U_SETTING(bool, minimizeToTrayOnClose, setMinimizeToTrayOnClose, "minimizeToTrayOnClose", true)
     U_SETTING(bool, openAfterSave, setOpenAfterSave, "openAfterSave", false)
     U_SETTING(bool, afterUploadCopyLink, setAfterUploadCopyLink, "upload/afterUploadCopyLink", true)
+    // "Upload with Unisic" in the file manager's right-click menu.
+    U_SETTING(bool, fileManagerUploadMenu, setFileManagerUploadMenu, "upload/fileManagerMenu", true)
     U_SETTING(bool, afterUploadOpenInBrowser, setAfterUploadOpenInBrowser, "upload/afterUploadOpenInBrowser", false)
     U_SETTING(bool, doNotDisturbWhileCapturing, setDoNotDisturbWhileCapturing,
               "capture/doNotDisturb", false)
@@ -724,6 +727,7 @@ public:
         emit portalAutostartGrantedChanged();
         emit minimizeToTrayOnCloseChanged(); emit openAfterSaveChanged();
         emit afterUploadCopyLinkChanged(); emit afterUploadOpenInBrowserChanged();
+        emit fileManagerUploadMenuChanged();
         emit doNotDisturbWhileCapturingChanged();
         emit externalActionEnabledChanged(); emit externalActionCommandChanged();
         emit externalActionTimeoutSecChanged();
@@ -825,6 +829,7 @@ signals:
     void openAfterSaveChanged();
     void afterUploadCopyLinkChanged();
     void afterUploadOpenInBrowserChanged();
+    void fileManagerUploadMenuChanged();
     void doNotDisturbWhileCapturingChanged();
     void externalActionEnabledChanged();
     void externalActionCommandChanged();

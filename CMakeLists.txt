@@ -173,6 +173,7 @@ qt_add_executable(unisic
     src/upload/UploadManager.h src/upload/UploadManager.cpp
     src/upload/S3Sign.h src/upload/S3Sign.cpp
     src/actions/ExternalActionRunner.h src/actions/ExternalActionRunner.cpp
+    src/actions/FileManagerMenu.h src/actions/FileManagerMenu.cpp
     src/history/HistoryStore.h src/history/HistoryStore.cpp
     src/history/HistoryFilterModel.h src/history/HistoryFilterModel.cpp
     src/hotkeys/GlobalHotkeys.h src/hotkeys/GlobalHotkeys.cpp
@@ -764,6 +765,16 @@ if(BUILD_TESTING)
     target_include_directories(unisic_upload_url_test PRIVATE src external/unisic-kit/src)
     add_test(NAME unisic_upload_url_test COMMAND unisic_upload_url_test)
     set_tests_properties(unisic_upload_url_test PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
+
+    # The right-click "Upload with Unisic" entries: what each file manager is
+    # handed, and that apply() never touches a file it did not write.
+    qt_add_executable(unisic_file_manager_menu_test
+        tests/FileManagerMenuTest.cpp
+        src/actions/FileManagerMenu.h src/actions/FileManagerMenu.cpp
+    )
+    target_link_libraries(unisic_file_manager_menu_test PRIVATE Qt6::Core Qt6::Test)
+    target_include_directories(unisic_file_manager_menu_test PRIVATE src)
+    add_test(NAME unisic_file_manager_menu_test COMMAND unisic_file_manager_menu_test)
 
     qt_add_executable(unisic_still_gif_test
         tests/StillGifTest.cpp
