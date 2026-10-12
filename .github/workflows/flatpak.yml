@@ -163,7 +163,7 @@ jobs:
       - name: Lint the manifest and the built repo
         run: |
           flatpak install -y --noninteractive flathub org.flatpak.Builder
-          # Four linter errors are expected for this app and can never clear
+          # Seven linter errors are expected for this app and can never clear
           # here, so a bare exit-code check would fail every single run: the
           # permission-store hole is granted by a Flathub reviewer as an
           # exception, appid-url-not-reachable occurs because unisic.app is
@@ -178,6 +178,13 @@ jobs:
               "appstream-screenshots-not-mirrored-in-ostree",
               "appstream-external-screenshot-url",
               "appid-url-not-reachable",
+              # The "Upload with Unisic" right-click entry: a Flatpak cannot
+              # export a service menu, so the app writes its own into exactly
+              # these folders (FileManagerMenu, see the manifest). Flathub
+              # would need to grant these as an exception too.
+              "finish-args-unnecessary-xdg-data-kio-create-access",
+              "finish-args-unnecessary-xdg-data-nautilus-rw-access",
+              "finish-args-unnecessary-xdg-data-nemo-rw-access",
           }
           raw = open(sys.argv[1], encoding="utf-8").read().strip()
           if not raw:
