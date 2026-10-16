@@ -1,0 +1,99 @@
+name: Debian package from main
+
+# An installable .deb of whatever is on main, published on every push - the
+# .deb counterpart of flatpak-release.yml, for the same gap: release.yml only
+# builds packages when the version in CMakeLists.txt is bumped. One rolling
+# prerelease, tag `deb-latest`, carries a single asset:
+#
+#   https://github.com/<owner>/<repo>/releases/download/deb-latest/unisic_<version>_amd64.deb
+#
+# The package version is the CMake version plus `+main<run number>`
+# (e.g. 0.8.7+main42), so every build sorts above the previous one and above
+# the plain 0.8.7 release, and `apt install ./unisic_*.deb` or deb-get treat it
+# as an upgrade. The next real release (0.8.8) still sorts above all of them.
+#
+# Kept apart from the real releases on purpose, exactly like flatpak-latest:
+#   - the tag is not v*, so release.yml's "is this version tagged yet" check,
+#     scripts/gen-changelog.sh and install.sh never see it;
+#   - it is a PRERELEASE, so GitHub's "latest release" (what install.sh and
+#     UpdateChecker read) stays the last versioned one.
+#
+# The build itself is deb.yml, the same reusable workflow release.yml and
+# build.yml call; only the version in the finished package is rewritten here.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Only the newest commit's package matters; a build of an older one that is
+# still running would only overwrite it with something staler.
+concurrency:
+  group: deb-latest
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/deb.yml
+
+  publish:
+    name: Publish deb-latest
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: unisic-deb
+          path: dist
+
+      - name: Stamp the build into the package version
+        run: |
+          built="$(ls dist/*.deb)"
+          base="$(dpkg-deb --field "$built" Version)"
+          version="${base}+main${GITHUB_RUN_NUMBER}"
+          arch="$(dpkg-deb --field "$built" Architecture)"
+
+          dpkg-deb --raw-extract "$built" pkg
+          sed -i "s/^Version: .*/Version: ${version}/" pkg/DEBIAN/control
+          rm "$built"
+          dpkg-deb --root-owner-group --build pkg "dist/unisic_${version}_${arch}.deb"
+          dpkg-deb --field dist/*.deb Package Version Architecture
+
+          echo "VERSION=${version}" >> "$GITHUB_ENV"
+
+      - name: Replace the rolling prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          deb="$(ls dist/*.deb)"
+          name="$(basename "$deb")"
+          short="${GITHUB_SHA::7}"
+
+          cat > NOTES.md <<EOF
+          Automatic build of \`main\` at ${GITHUB_SHA} (${VERSION}, ${short}). Not a release:
+          it is replaced on every push to main. Versioned releases are the ones tagged \`v*\`.
+
+          Install or update:
+
+          \`\`\`bash
+          curl -LO https://github.com/${GH_REPO}/releases/download/deb-latest/${name}
+          sudo apt install ./${name}
+          \`\`\`
+          EOF
+
+          # Delete and recreate rather than upload --clobber: the tag has to
+          # move to this commit, and the asset name changes with the version.
+          gh release delete deb-latest --cleanup-tag --yes 2>/dev/null || true
+          gh release create deb-latest "$deb" \
+            --target "$GITHUB_SHA" \
+            --prerelease \
+            --title "Unisic .deb - main (${VERSION})" \
+            --notes-file NOTES.md
