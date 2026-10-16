@@ -19,7 +19,17 @@ name: Debian package from main
 #     UpdateChecker read) stays the last versioned one.
 #
 # The build itself is deb.yml, the same reusable workflow release.yml and
-# build.yml call; only the version in the finished package is rewritten here.
+# build.yml call, but in ubuntu:26.04 instead of debian:trixie: the .deb pins
+# the exact Qt it was built against (qt6-base-private-abi), so a trixie build
+# refuses to install on Ubuntu 26.04 (issue #93). This package is therefore
+# for Ubuntu 26.04 only.
+#
+# Two things are rewritten in the finished package:
+#   - the version, as above;
+#   - postinst/postrm are dropped. They register the upstream OBS apt repo,
+#     and an `apt upgrade` from there would quietly replace this build of main
+#     with the next upstream release. Updates for this package come from
+#     deb-latest instead (deb-get, or re-running the install below).
 on:
   push:
     branches: [main]
@@ -42,6 +52,8 @@ jobs:
   build:
     name: Build
     uses: ./.github/workflows/deb.yml
+    with:
+      image: ubuntu:26.04
 
   publish:
     name: Publish deb-latest
@@ -62,6 +74,7 @@ jobs:
 
           dpkg-deb --raw-extract "$built" pkg
           sed -i "s/^Version: .*/Version: ${version}/" pkg/DEBIAN/control
+          rm -f pkg/DEBIAN/postinst pkg/DEBIAN/postrm
           rm "$built"
           dpkg-deb --root-owner-group --build pkg "dist/unisic_${version}_${arch}.deb"
           dpkg-deb --field dist/*.deb Package Version Architecture
@@ -80,6 +93,8 @@ jobs:
           cat > NOTES.md <<EOF
           Automatic build of \`main\` at ${GITHUB_SHA} (${VERSION}, ${short}). Not a release:
           it is replaced on every push to main. Versioned releases are the ones tagged \`v*\`.
+
+          Built on Ubuntu 26.04 and installable there only (it pins that Qt version).
 
           Install or update:
 

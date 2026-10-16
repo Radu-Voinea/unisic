@@ -4,11 +4,27 @@ name: Debian package
 # `unisic-deb` artifact. Called by:
 #   - build.yml   -> PR smoke check: does the package still build and install?
 #   - release.yml -> produces the published release asset.
+#   - deb-release.yml -> the rolling deb-latest build, with image: ubuntu:26.04.
 # Keeping it here (not duplicated) means the PR check tests the exact build the
 # release uses, so the two can never drift.
+#
+# The image matters, not just the package list: the .deb records
+# qt6-base-private-abi (= <Qt version>), so a package built here installs only
+# on a distro with exactly this Qt (trixie: 6.8.2, Ubuntu 26.04: 6.10.2) - see
+# docs/dev/packaging.md and issue #93.
 on:
   workflow_call:
+    inputs:
+      image:
+        description: Container the package is built (and install-tested) in
+        type: string
+        default: debian:trixie
   workflow_dispatch:
+    inputs:
+      image:
+        description: Container the package is built (and install-tested) in
+        type: string
+        default: debian:trixie
 
 defaults:
   run:
@@ -17,12 +33,14 @@ defaults:
 env:
   BUILD_TYPE: Release
   UNISIC_BUILD_NUMBER: ${{ github.run_number }}
+  # Ubuntu images prompt for tzdata without it; harmless on Debian.
+  DEBIAN_FRONTEND: noninteractive
 
 jobs:
   deb:
     name: Debian package
     runs-on: ubuntu-latest
-    container: debian:trixie
+    container: ${{ inputs.image || 'debian:trixie' }}
     steps:
       - name: Install build dependencies
         run: |
